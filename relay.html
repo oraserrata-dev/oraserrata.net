@@ -1,463 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rouse Relay — Download</title>
-    <meta name="description" content="Download the Rouse Relay server for macOS, Windows, Linux, or Docker. Wake your devices remotely with Rouse.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0a0e17;
-            --surface: #111827;
-            --surface-hover: #1a2332;
-            --border: #1e2a3a;
-            --text: #e2e8f0;
-            --text-muted: #8896a8;
-            --accent: #22c55e;
-            --accent-dim: rgba(34, 197, 94, 0.12);
-            --blue: #3b82f6;
-            --blue-dim: rgba(59, 130, 246, 0.12);
-            --orange: #f59e0b;
-            --orange-dim: rgba(245, 158, 11, 0.12);
-            --purple: #a78bfa;
-            --purple-dim: rgba(167, 139, 250, 0.12);
-            --radius: 12px;
-            --mono: 'JetBrains Mono', monospace;
-            --sans: 'DM Sans', -apple-system, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rouse Relay — Ora Serrata</title>
+  <meta name="description" content="Download the Rouse Relay server for macOS, Windows, Linux, or Docker. Wake your devices remotely with Rouse.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .relay-hero {
+      text-align: center;
+      padding: calc(var(--space-xl) + 2rem) var(--space-md) var(--space-lg);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .relay-hero .app-badge { margin-bottom: var(--space-md); }
+    .relay-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 3.5rem);
+      font-weight: 400;
+      margin-bottom: var(--space-sm);
+    }
+    .relay-hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    .relay-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md) var(--space-xl);
+    }
 
-        body {
-            font-family: var(--sans);
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .download-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.75rem 1.25rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--teal-soft), var(--orange-soft));
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.3s, transform 0.15s;
+    }
+    .download-card:hover {
+      border-color: rgba(78, 205, 196, 0.25);
+      transform: translateY(-2px);
+      opacity: 1;
+    }
+    .download-card .card-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .download-card .card-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; }
+    .download-card .card-arch { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 1rem; }
+    .download-btn {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--bg);
+      background: var(--teal);
+      padding: 0.4rem 1.25rem;
+      border-radius: 100px;
+      transition: opacity 0.2s;
+    }
+    .download-card:hover .download-btn { opacity: 0.9; }
 
-        .container {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+    .docker-section {
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--teal-soft), var(--orange-soft));
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      margin-bottom: var(--space-lg);
+    }
+    .docker-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .docker-header span:first-child { font-size: 1.5rem; }
+    .docker-header .docker-title { font-weight: 600; font-size: 1rem; }
+    .docker-header .docker-sub { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* Nav */
-        nav {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .nav-brand {
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--text);
-            text-decoration: none;
-            letter-spacing: -0.3px;
-        }
-        .nav-brand span { color: var(--text-muted); font-weight: 400; }
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 14px;
-            margin-left: 28px;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--text); }
+    .code-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.03em;
+    }
+    .code-block {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-family: 'DM Sans', monospace;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      overflow-x: auto;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    .code-block pre { margin: 0; font-family: inherit; font-size: inherit; line-height: inherit; color: inherit; }
+    .code-block .hl { color: var(--teal); }
+    .copy-btn {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      font-family: var(--font-body);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .copy-btn:hover { color: var(--text); border-color: var(--text-muted); }
 
-        /* Hero */
-        .hero {
-            padding: 72px 0 48px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 42px;
-            font-weight: 700;
-            letter-spacing: -1.5px;
-            margin-bottom: 16px;
-            line-height: 1.15;
-        }
-        .hero p {
-            color: var(--text-muted);
-            font-size: 18px;
-            max-width: 560px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-        .version-badge {
-            display: inline-block;
-            background: var(--accent-dim);
-            color: var(--accent);
-            font-family: var(--mono);
-            font-size: 13px;
-            font-weight: 500;
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-        }
+    .steps-section {
+      border-top: 1px solid var(--border);
+      padding-top: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+    .steps-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    .steps-section > p {
+      color: var(--text-muted);
+      margin-bottom: var(--space-md);
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .step {
+      padding: 1.25rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--teal-soft), var(--orange-soft));
+      border: 1px solid var(--border);
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 0.8rem;
+      border-radius: 50%;
+      margin-bottom: 0.75rem;
+      border: 1px solid rgba(78, 205, 196, 0.2);
+    }
+    .step h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .step p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
 
-        /* Download Cards */
-        .downloads {
-            padding: 24px 0 64px;
-        }
-        .download-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-        .download-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 28px 24px;
-            text-align: center;
-            transition: border-color 0.2s, transform 0.15s;
-            cursor: pointer;
-            text-decoration: none;
-            color: var(--text);
-            display: block;
-        }
-        .download-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-        .card-icon {
-            font-size: 36px;
-            margin-bottom: 14px;
-        }
-        .card-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        .card-subtitle {
-            color: var(--text-muted);
-            font-size: 13px;
-            margin-bottom: 16px;
-        }
-        .card-button {
-            display: inline-block;
-            background: var(--accent);
-            color: #0a0e17;
-            font-weight: 600;
-            font-size: 14px;
-            padding: 8px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-        .card-button:hover { opacity: 0.9; }
-        .card-arch {
-            font-family: var(--mono);
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 10px;
-        }
+    .req-section {
+      border-top: 1px solid var(--border);
+      padding-top: var(--space-lg);
+    }
+    .req-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: var(--space-md);
+    }
+    .req-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .req-item {
+      padding: 1.25rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--teal-soft), var(--orange-soft));
+      border: 1px solid var(--border);
+    }
+    .req-item h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .req-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
 
-        /* Docker section */
-        .docker-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 28px 28px;
-        }
-        .docker-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-        .docker-header .card-icon { font-size: 28px; margin-bottom: 0; }
-        .docker-header h3 { font-size: 18px; font-weight: 600; }
-        .docker-header span { color: var(--text-muted); font-size: 14px; }
-
-        .code-block {
-            background: #080c14;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 18px 20px;
-            font-family: var(--mono);
-            font-size: 13px;
-            line-height: 1.7;
-            overflow-x: auto;
-            position: relative;
-            margin-bottom: 12px;
-        }
-        .code-block code { color: var(--text-muted); }
-        .code-block .cmd { color: var(--text); }
-        .code-block .flag { color: var(--blue); }
-        .code-block .string { color: var(--accent); }
-        .code-label {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-        .copy-btn {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 12px;
-            font-family: var(--sans);
-            padding: 4px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: color 0.2s, border-color 0.2s;
-        }
-        .copy-btn:hover { color: var(--text); border-color: var(--text-muted); }
-
-        /* How it works */
-        .how-it-works {
-            padding: 48px 0;
-            border-top: 1px solid var(--border);
-        }
-        .how-it-works h2 {
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: -0.8px;
-            margin-bottom: 12px;
-        }
-        .how-it-works > .container > p {
-            color: var(--text-muted);
-            margin-bottom: 36px;
-            font-size: 16px;
-            max-width: 540px;
-        }
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .step {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 24px 20px;
-        }
-        .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            background: var(--accent-dim);
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 13px;
-            border-radius: 50%;
-            margin-bottom: 12px;
-        }
-        .step h3 {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-        .step p {
-            color: var(--text-muted);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* Requirements */
-        .requirements {
-            padding: 48px 0;
-            border-top: 1px solid var(--border);
-        }
-        .requirements h2 {
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: -0.8px;
-            margin-bottom: 24px;
-        }
-        .req-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
-        }
-        .req-item {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 20px;
-        }
-        .req-item h3 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-        .req-item p {
-            color: var(--text-muted);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 28px 0;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-        footer a {
-            color: var(--text-muted);
-            text-decoration: none;
-        }
-        footer a:hover { color: var(--text); }
-
-        /* Mobile */
-        @media (max-width: 600px) {
-            .hero { padding: 48px 0 32px; }
-            .hero h1 { font-size: 30px; }
-            .hero p { font-size: 16px; }
-            .download-grid { grid-template-columns: 1fr; }
-            .nav-links a { margin-left: 16px; font-size: 13px; }
-        }
-    </style>
+    @media (max-width: 640px) {
+      .relay-hero { padding: calc(var(--space-lg) + 3rem) var(--space-sm) var(--space-md); }
+      .relay-content { padding: 0 var(--space-sm) var(--space-lg); }
+      .download-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-    <div class="container">
-        <a href="/" class="nav-brand">Ora Serrata <span>LLC</span></a>
-        <div class="nav-links">
-            <a href="/">Rouse</a>
-            <a href="/relay">Relay</a>
-            <a href="/privacy">Privacy</a>
+  <nav class="nav">
+    <a href="/" class="nav-brand">Ora Serrata</a>
+    <div class="nav-links">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </nav>
+
+  <section class="relay-hero">
+    <div class="app-badge">v1.0.0</div>
+    <h1>Rouse Relay</h1>
+    <p>A lightweight server that receives wake requests from the Rouse app and broadcasts Wake-on-LAN packets on your local network. Install it on any always-on device.</p>
+  </section>
+
+  <main class="relay-content">
+
+    <div class="download-grid">
+      <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-macOS-arm64.zip" class="download-card">
+        <div class="card-icon">&#63743;</div>
+        <div class="card-title">macOS</div>
+        <div class="card-arch">Apple Silicon &amp; Intel</div>
+        <div class="download-btn">Download</div>
+      </a>
+      <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-windows-amd64.zip" class="download-card">
+        <div class="card-icon">&#9114;</div>
+        <div class="card-title">Windows</div>
+        <div class="card-arch">64-bit (x86_64)</div>
+        <div class="download-btn">Download</div>
+      </a>
+      <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-linux-amd64.zip" class="download-card">
+        <div class="card-icon">&#128039;</div>
+        <div class="card-title">Linux</div>
+        <div class="card-arch">amd64 &middot; arm64</div>
+        <div class="download-btn">Download</div>
+      </a>
+    </div>
+
+    <div class="docker-section">
+      <div class="docker-header">
+        <span>&#128051;</span>
+        <div>
+          <div class="docker-title">Docker</div>
+          <div class="docker-sub">For Synology, QNAP, Raspberry Pi, or any Docker host</div>
         </div>
+      </div>
+      <div class="code-label">Docker Compose</div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>services:
+  rouse-relay:
+    image: <span class="hl">oraserrata/rouse-relay:latest</span>
+    container_name: rouse-relay
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - AUTH_TOKEN=<span class="hl">your-password-here</span></pre>
+      </div>
+      <div class="code-label">Docker CLI</div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>docker run -d \
+    --name rouse-relay \
+    --network host \
+    --restart unless-stopped \
+    -e AUTH_TOKEN=<span class="hl">your-password-here</span> \
+    <span class="hl">oraserrata/rouse-relay:latest</span></pre>
+      </div>
     </div>
-</nav>
 
-<section class="hero">
-    <div class="container">
-        <div class="version-badge">v1.0.0</div>
-        <h1>Rouse Relay</h1>
-        <p>A lightweight server that receives wake requests from the Rouse app and broadcasts Wake-on-LAN packets on your local network. Install it on any always-on device.</p>
-    </div>
-</section>
-
-<section class="downloads">
-    <div class="container">
-        <div class="download-grid">
-            <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-macOS-arm64.zip" class="download-card">
-                <div class="card-icon">&#63743;</div>
-                <div class="card-title">macOS</div>
-                <div class="card-subtitle">Download (.zip)</div>
-                <div class="card-button">Download</div>
-                <div class="card-arch">Apple Silicon &amp; Intel</div>
-            </a>
-            <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-windows-amd64.zip" class="download-card">
-                <div class="card-icon">&#9114;</div>
-                <div class="card-title">Windows</div>
-                <div class="card-subtitle">Download (.zip)</div>
-                <div class="card-button">Download</div>
-                <div class="card-arch">64-bit (x86_64)</div>
-            </a>
-            <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-linux-amd64.zip" class="download-card">
-                <div class="card-icon">&#128039;</div>
-                <div class="card-title">Linux</div>
-                <div class="card-subtitle">Download (.zip)</div>
-                <div class="card-button">Download</div>
-                <div class="card-arch">amd64 &middot; arm64</div>
-            </a>
+    <div class="steps-section">
+      <h2>How it works</h2>
+      <p>The relay sits between the Rouse app and your sleeping devices.</p>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Install the relay</h3>
+          <p>Download and run the installer on any always-on device on your network. Choose a strong password when prompted.</p>
         </div>
-
-        <div class="docker-card">
-            <div class="docker-header">
-                <div class="card-icon">&#128051;</div>
-                <div>
-                    <h3>Docker</h3>
-                    <span>For Synology, QNAP, Raspberry Pi, or any Docker host</span>
-                </div>
-            </div>
-            <div class="code-label">Docker Compose (for Portainer / stacks)</div>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code><span class="cmd">services:</span>
-  <span class="cmd">rouse-relay:</span>
-    <span class="flag">image:</span> <span class="string">oraserrata/rouse-relay:latest</span>
-    <span class="flag">container_name:</span> <span class="string">rouse-relay</span>
-    <span class="flag">restart:</span> <span class="string">unless-stopped</span>
-    <span class="flag">network_mode:</span> <span class="string">host</span>
-    <span class="flag">environment:</span>
-      - <span class="string">AUTH_TOKEN=your-password-here</span></code>
-            </div>
-            <div class="code-label">Docker CLI</div>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code><span class="cmd">docker run</span> <span class="flag">-d</span> \
-    <span class="flag">--name</span> <span class="string">rouse-relay</span> \
-    <span class="flag">--network</span> <span class="string">host</span> \
-    <span class="flag">--restart</span> <span class="string">unless-stopped</span> \
-    <span class="flag">-e</span> <span class="string">AUTH_TOKEN=your-password-here</span> \
-    <span class="string">oraserrata/rouse-relay:latest</span></code>
-            </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Connect via VPN</h3>
+          <p>Set up Tailscale, WireGuard, or OpenVPN so you can reach your home network when you're away.</p>
         </div>
-    </div>
-</section>
-
-<section class="how-it-works">
-    <div class="container">
-        <h2>How it works</h2>
-        <p>The relay sits between the Rouse app and your sleeping devices. Three steps to set up.</p>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Install the relay</h3>
-                <p>Download and run the installer on any always-on device on your network. Choose a strong password when prompted.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Connect via VPN</h3>
-                <p>Set up Tailscale, WireGuard, or OpenVPN so you can reach your home network when you're away.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Configure Rouse</h3>
-                <p>Open Rouse, go to Relay Setup, enter your relay's IP address and the password you set. Tap Test Connection to verify.</p>
-            </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Configure Rouse</h3>
+          <p>Open Rouse, go to Relay Setup, enter your relay's IP address and the password you set. Tap Test Connection to verify.</p>
         </div>
+      </div>
     </div>
-</section>
 
-<section class="requirements">
-    <div class="container">
-        <h2>Requirements</h2>
-        <div class="req-grid">
-            <div class="req-item">
-                <h3>Always-on device</h3>
-                <p>The relay needs to run on a device that stays powered on and connected to the same network as the devices you want to wake. A NAS, Raspberry Pi, Mac Mini, or old PC works great.</p>
-            </div>
-            <div class="req-item">
-                <h3>VPN for remote access</h3>
-                <p>To wake devices when you're away from home, you need a VPN that connects you to your home network. Tailscale is the easiest option. The Rouse app Setup Guide walks you through this.</p>
-            </div>
-            <div class="req-item">
-                <h3>Rouse app</h3>
-                <p>Available on the App Store for iPhone, iPad, and Mac. The relay works with Rouse v1.0 and later.</p>
-            </div>
+    <div class="req-section">
+      <h2>Requirements</h2>
+      <div class="req-grid">
+        <div class="req-item">
+          <h3>Always-on device</h3>
+          <p>The relay needs to run on a device that stays powered on and connected to the same network as the devices you want to wake.</p>
         </div>
+        <div class="req-item">
+          <h3>VPN for remote access</h3>
+          <p>To wake devices when you're away from home, you need a VPN that connects you to your home network. Tailscale is the easiest option.</p>
+        </div>
+        <div class="req-item">
+          <h3>Rouse app</h3>
+          <p>Available on the App Store for iPhone, iPad, and Mac. The relay works with Rouse v1.0 and later.</p>
+        </div>
+      </div>
     </div>
-</section>
 
-<footer>
-    <div class="container">
-        &copy; 2026 Ora Serrata LLC &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/cdn-cgi/l/email-protection#f29a979e9e9db29d809381978080938693dc9c9786">Contact</a>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Ora Serrata LLC</p>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/about.html">About</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Ora Serrata LLC. All rights reserved.</p>
     </div>
-</footer>
+  </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function copyCode(btn) {
-    const block = btn.parentElement;
-    const code = block.querySelector('code').textContent;
-    navigator.clipboard.writeText(
+  <script>
+  function copyCode(btn) {
+    const pre = btn.parentElement.querySelector('pre');
+    navigator.clipboard.writeText(pre.textContent).then(() => {
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>
