@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — Ora Serrata</title>
+  <meta name="description" content="Get help with Rouse and other Ora Serrata apps.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-brand">Ora Serrata</a>
+    <div class="nav-links">
+      <a href="/about.html">About</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </nav>
+
+  <main class="legal-page">
+    <h1>Support</h1>
+    <p class="legal-date">Help with Rouse and other Ora Serrata apps.</p>
+
+    <div class="about-section">
+      <h2>Get in touch</h2>
+      <p>Email <a href="mailto:hello@oraserrata.net">hello@oraserrata.net</a> with questions, bug reports, or feedback. We're a small studio and read every message. Expect a reply within a couple of days.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>Rouse setup</h2>
+      <p>Rouse includes a built-in Setup Guide that walks you through enabling Wake-on-LAN on your target devices and configuring remote wake. Open the app and look for "Setup Guide" in the menu.</p>
+      <p>You need three things for remote wake to work: a target device with Wake-on-LAN enabled in its BIOS or system settings, an always-on machine on your home network running Rouse Relay, and a VPN like Tailscale so your phone can reach your home network when you're away.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>Rouse Relay</h2>
+      <p>The Rouse Relay server enables remote wake when you're away from home. Downloads for macOS, Windows, Linux, and Docker are at <a href="/relay.html">oraserrata.net/relay</a>.</p>
+      <p>For relay-specific issues or feature requests, you can also open a GitHub issue at <a href="https://github.com/oraserrata-dev/rouse-relay/issues">github.com/oraserrata-dev/rouse-relay/issues</a>.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>Common questions</h2>
+      <p><strong>The wake button does nothing.</strong> Check that your target device has Wake-on-LAN enabled in its BIOS or system settings, and that it's connected via Ethernet. Wi-Fi-only Wake-on-LAN is unreliable on most hardware.</p>
+      <p><strong>My Apple Silicon Mac wakes briefly then goes back to sleep.</strong> That's expected. Apple Silicon Macs return to Dark Wake quickly after a magic packet. Install Rouse on the target Mac and enable Wake Helper in its Settings. Wake Helper holds the system fully awake long enough for Screen Sharing, Parsec, or TeamViewer to connect.</p>
+      <p><strong>Can I wake my Mac remotely without setting up a VPN?</strong> Only if you forward a port on your router to expose your Rouse Relay to the public internet, which we don't recommend. A VPN like Tailscale gives you remote access without exposing anything publicly.</p>
+      <p><strong>Why does Rouse ask for Location permission?</strong> Apple gates access to the current Wi-Fi network's name behind the Location permission, even when you only want the network name and not your geographic location. Rouse reads only the network name and BSSID, never your geographic position.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>Privacy and terms</h2>
+      <p>For information about how Rouse handles data, see the <a href="/privacy.html">Privacy Policy</a>. For terms of use, see the <a href="/terms.html">Terms of Service</a>.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Ora Serrata LLC</p>
+      <div class="footer-links">
+        <a href="/support.html">Support</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/about.html">About</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Ora Serrata LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
