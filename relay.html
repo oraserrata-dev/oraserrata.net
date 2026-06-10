@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rouse Relay — Ora Serrata</title>
+  <title>Rouse Relay · Ora Serrata</title>
   <meta name="description" content="Download the Rouse Relay server for macOS, Windows, Linux, or Docker. Wake your devices remotely with Rouse.">
+  <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -219,7 +220,7 @@
   </nav>
 
   <section class="relay-hero">
-    <div class="app-badge">v1.2.0</div>
+    <div class="app-badge">v1.3.1</div>
     <h1>Rouse Relay</h1>
     <p>A lightweight server that receives wake requests from the Rouse app and broadcasts Wake-on-LAN packets on your local network. Install it on any always-on device.</p>
   </section>
@@ -230,7 +231,7 @@
       <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-macOS-arm64.zip" class="download-card">
         <div class="card-icon">&#63743;</div>
         <div class="card-title">macOS</div>
-        <div class="card-arch">Apple Silicon &amp; Intel</div>
+        <div class="card-arch">Apple Silicon</div>
         <div class="download-btn">Download</div>
       </a>
       <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-windows-amd64.zip" class="download-card">
@@ -242,10 +243,12 @@
       <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-linux-amd64.zip" class="download-card">
         <div class="card-icon">&#128039;</div>
         <div class="card-title">Linux</div>
-        <div class="card-arch">amd64 &middot; arm64</div>
+        <div class="card-arch">x86 64-bit (amd64)</div>
         <div class="download-btn">Download</div>
       </a>
     </div>
+
+    <p style="font-size: 0.85rem; color: var(--text-muted); margin: -0.5rem 0 var(--space-lg);">Intel Mac or ARM Linux (Raspberry Pi)? <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest">All builds are on GitHub</a>.</p>
 
     <div class="docker-section">
       <div class="docker-header">
@@ -277,6 +280,7 @@
     -e AUTH_TOKEN=<span class="hl">your-password-here</span> \
     <span class="hl">oraserrata/rouse-relay:latest</span></pre>
       </div>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Replace <code>your-password-here</code> with a token generated in Rouse's relay settings. The relay refuses to start with the placeholder.</p>
     </div>
 
     <div class="steps-section">
@@ -286,7 +290,7 @@
         <div class="step">
           <div class="step-num">1</div>
           <h3>Install the relay</h3>
-          <p>Download and run the installer on any always-on device on your network. Choose a strong password when prompted.</p>
+          <p>Unzip the download on any always-on device, open the install script, and set AUTH_TOKEN to a token you generate in Rouse. The installer refuses to run with the placeholder.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
@@ -296,7 +300,7 @@
         <div class="step">
           <div class="step-num">3</div>
           <h3>Configure Rouse</h3>
-          <p>Open Rouse, go to Relay Setup, enter your relay's IP address and the password you set. Tap Test Connection to verify.</p>
+          <p>In Rouse, edit your home Location, enter the relay's address and your token under Remote relay, then use Test Connection to verify.</p>
         </div>
       </div>
     </div>
