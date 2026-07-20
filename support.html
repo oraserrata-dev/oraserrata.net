@@ -29,13 +29,14 @@
 
     <div class="about-section">
       <h2>Get in touch</h2>
-      <p>Email <a href="mailto:hello@oraserrata.net">hello@oraserrata.net</a> with questions, bug reports, or feedback. We're a small studio and read every message. Expect a reply within a couple of days.</p>
+      <p>Email <a href="mailto:hello@oraserrata.net">hello@oraserrata.net</a> with questions, bug reports, or feedback. Ora Serrata is a one-person studio, so replies can take time, but every message gets read.</p>
     </div>
 
     <div class="about-section">
       <h2>Rouse setup</h2>
       <p>Rouse includes a built-in Setup Guide that walks you through enabling Wake-on-LAN on your target devices and configuring remote wake. Open the app and look for "Setup Guide" in the menu.</p>
       <p>You need three things for remote wake to work: a target device with Wake-on-LAN enabled in its BIOS or system settings, an always-on machine on your home network running Rouse Relay, and a VPN like Tailscale so your phone can reach your home network when you're away.</p>
+      <p>Setting up a Windows PC? See the step-by-step guide: <a href="/wol-guide.html">Enable Wake-on-LAN on Windows</a>.</p>
     </div>
 
     <div class="about-section">
@@ -46,7 +47,7 @@
 
     <div class="about-section">
       <h2>Common questions</h2>
-      <p><strong>The wake button does nothing.</strong> Check that your target device has Wake-on-LAN enabled in its BIOS or system settings, and that it's connected via Ethernet. Wi-Fi-only Wake-on-LAN is unreliable on most hardware.</p>
+      <p><strong>The wake button does nothing.</strong> Check that your target device has Wake-on-LAN enabled in its BIOS or system settings, and that it's connected via Ethernet. Wi-Fi-only Wake-on-LAN is unreliable on most hardware. Windows users: see <a href="/wol-guide.html">the Windows Wake-on-LAN guide</a>.</p>
       <p><strong>My Apple Silicon Mac wakes briefly then goes back to sleep.</strong> That's expected. Apple Silicon Macs return to Dark Wake quickly after a magic packet. Install Rouse on the target Mac and enable Wake Helper in its Settings. Wake Helper holds the system fully awake long enough for Screen Sharing, Parsec, or TeamViewer to connect.</p>
       <p><strong>Can I wake my Mac remotely without setting up a VPN?</strong> Only if you forward a port on your router to expose your Rouse Relay to the public internet, which we don't recommend. A VPN like Tailscale gives you remote access without exposing anything publicly.</p>
       <p><strong>Why does Rouse ask for Location permission?</strong> Apple gates access to the current Wi-Fi network's name behind the Location permission, even when you only want the network name and not your geographic location. Rouse reads only the network name and BSSID, never your geographic position.</p>

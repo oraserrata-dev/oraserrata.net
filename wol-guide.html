@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enable Wake-on-LAN on Windows · Ora Serrata</title>
+  <meta name="description" content="Step-by-step guide to enabling Wake-on-LAN on a Windows PC so Rouse can wake it.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* WoL guide additions, scoped to this page */
+    .wol-step { margin-bottom: var(--space-lg); }
+    .wol-step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 1.8rem; height: 1.8rem; border-radius: 50%;
+      background: var(--teal-soft); color: var(--teal);
+      font-size: 0.9rem; font-weight: 600; margin-right: 0.6rem;
+      vertical-align: -0.35rem;
+    }
+    .wol-kbd {
+      font-family: ui-monospace, Menlo, monospace; font-size: 0.85em;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 5px; padding: 0.1rem 0.45rem; color: var(--text);
+      white-space: nowrap;
+    }
+    .wol-shot {
+      margin: var(--space-md) 0; padding: var(--space-md);
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; display: flex; justify-content: center;
+      overflow-x: auto;
+    }
+    .wol-note {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      padding: 1rem 1.25rem; border-radius: 10px;
+      background: var(--orange-soft); border: 1px solid rgba(232,160,69,0.25);
+      color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;
+      margin: var(--space-sm) 0;
+    }
+    .wol-note strong { color: var(--orange); }
+    /* --- Recreated Windows dialogs (illustrative, not screenshots) --- */
+    .win { font-family: 'Segoe UI', -apple-system, sans-serif; font-size: 13px; color: #1a1a1a;
+      background: #f0f0f0; border: 1px solid #888; border-radius: 8px;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.5); width: 420px; max-width: 100%; flex: none; }
+    .win-title { display: flex; align-items: center; gap: 8px; padding: 8px 12px;
+      background: #fff; border-radius: 8px 8px 0 0; border-bottom: 1px solid #d9d9d9;
+      font-weight: 400; color: #1a1a1a; }
+    .win-title .win-x { margin-left: auto; color: #666; font-size: 14px; }
+    .win-tabs { display: flex; gap: 2px; padding: 8px 10px 0; background: #fff; }
+    .win-tab { padding: 5px 11px; border: 1px solid #d9d9d9; border-bottom: none;
+      border-radius: 4px 4px 0 0; background: #f5f5f5; color: #444; }
+    .win-tab.on { background: #fff; position: relative; top: 1px; font-weight: 600; }
+    .win-body { background: #fff; padding: 16px 18px 18px; border-top: 1px solid #d9d9d9; }
+    .win-check { display: flex; gap: 9px; align-items: flex-start; margin-bottom: 12px; line-height: 1.45; }
+    .win-box { flex: none; width: 15px; height: 15px; margin-top: 1px; border: 1px solid #555;
+      border-radius: 3px; background: #0067c0; position: relative; }
+    .win-box.off { background: #fff; }
+    .win-box:not(.off)::after { content: ''; position: absolute; left: 4px; top: 1px;
+      width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(40deg); }
+    .win-box.dis { background: #e5e5e5; border-color: #aaa; }
+    .win-indent { margin-left: 24px; }
+    .win-btns { display: flex; justify-content: flex-end; gap: 8px; padding: 12px 18px;
+      background: #f0f0f0; border-radius: 0 0 8px 8px; }
+    .win-btn { padding: 4px 22px; border: 1px solid #999; border-radius: 4px; background: #fdfdfd; }
+    .win-btn.primary { background: #0067c0; border-color: #0067c0; color: #fff; }
+    .win-list { border: 1px solid #ccc; height: 144px; overflow: hidden; margin-bottom: 10px; background: #fff; }
+    .win-list div { padding: 3px 8px; }
+    .win-list .sel { background: #0067c0; color: #fff; }
+    .win-select { display: flex; align-items: center; justify-content: space-between;
+      border: 1px solid #999; border-radius: 3px; padding: 4px 8px; width: 170px; background: #fff; }
+    .win-tree div { padding: 2px 0 2px 0; white-space: nowrap; }
+    .win-tree .dim { color: #555; }
+    .win-hl { outline: 2px solid #4ecdc4; outline-offset: 2px; border-radius: 3px; }
+    .win-label { font-size: 11.5px; color: #555; margin-bottom: 4px; }
+    @media (max-width: 640px) { .wol-shot { padding: var(--space-sm); } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-brand">Ora Serrata</a>
+    <div class="nav-links">
+      <a href="/about.html">About</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </nav>
+
+  <main class="legal-page">
+    <h1>Enable Wake-on-LAN on Windows</h1>
+    <p class="legal-date">Five minutes, once, on the PC you want Rouse to wake.</p>
+
+    <p>Wake-on-LAN lets a sleeping PC be woken by a "magic packet" sent over your network. Windows PCs usually ship with it half-enabled: the hardware supports it, but two or three settings stand in the way. Work through the steps below on the target PC, then use Test the Wake in Rouse's Setup Guide to confirm.</p>
+
+    <div class="wol-note"><span>⚡</span><div><strong>Use Ethernet.</strong> Wake-on-LAN over Wi-Fi is unreliable on most hardware. If the PC has an Ethernet port, plug it in. These steps assume the wired adapter.</div></div>
+
+    <div class="wol-step">
+      <h2><span class="wol-step-num">1</span>Allow the network adapter to wake the PC</h2>
+      <p>Right-click the Start button and choose <strong>Device Manager</strong>. Expand <strong>Network adapters</strong>, double-click your Ethernet adapter, and open the <strong>Power Management</strong> tab. Check the first two boxes:</p>
+      <div class="wol-shot">
+        <div class="win" role="img" aria-label="Illustration of the adapter Power Management tab with both wake checkboxes enabled">
+          <div class="win-title">Intel(R) Ethernet Connection I219-V Properties <span class="win-x">✕</span></div>
+          <div class="win-tabs"><span class="win-tab">General</span><span class="win-tab">Advanced</span><span class="win-tab">Driver</span><span class="win-tab on">Power Management</span></div>
+          <div class="win-body">
+            <p style="margin-bottom:12px;color:#333">Intel(R) Ethernet Connection I219-V</p>
+            <div class="win-check"><span class="win-box off dis"></span><span style="color:#888">Allow the computer to turn off this device to save power</span></div>
+            <div class="win-check win-hl"><span class="win-box"></span><span><strong>Allow this device to wake the computer</strong></span></div>
+            <div class="win-check win-indent win-hl"><span class="win-box"></span><span><strong>Only allow a magic packet to wake the computer</strong></span></div>
+          </div>
+          <div class="win-btns"><span class="win-btn primary">OK</span><span class="win-btn">Cancel</span></div>
+        </div>
+      </div>
+      <p>The second box is optional but recommended: it stops ordinary network chatter from waking the PC at random.</p>
+    </div>
+
+    <div class="wol-step">
+      <h2><span class="wol-step-num">2</span>Enable Wake on Magic Packet</h2>
+      <p>In the same Properties window, open the <strong>Advanced</strong> tab. In the Property list, find <strong>Wake on Magic Packet</strong> and set its Value to <strong>Enabled</strong>. Names vary slightly by adapter. Realtek calls it "Wake on Magic Packet"; some list "WOL &amp; Shutdown Link Speed" too, which can stay at its default.</p>
+      <div class="wol-shot">
+        <div class="win" role="img" aria-label="Illustration of the adapter Advanced tab with Wake on Magic Packet set to Enabled">
+          <div class="win-title">Intel(R) Ethernet Connection I219-V Properties <span class="win-x">✕</span></div>
+          <div class="win-tabs"><span class="win-tab">General</span><span class="win-tab on">Advanced</span><span class="win-tab">Driver</span><span class="win-tab">Power Management</span></div>
+          <div class="win-body">
+            <div class="win-label">Property:</div>
+            <div class="win-list">
+              <div>Speed &amp; Duplex</div>
+              <div>Ultra Low Power Mode</div>
+              <div class="sel">Wake on Magic Packet</div>
+              <div>Wake on Pattern Match</div>
+              <div>Wake on Link Settings</div>
+            </div>
+            <div class="win-label">Value:</div>
+            <div class="win-select win-hl"><span><strong>Enabled</strong></span><span style="color:#555">▾</span></div>
+          </div>
+          <div class="win-btns"><span class="win-btn primary">OK</span><span class="win-btn">Cancel</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wol-step">
+      <h2><span class="wol-step-num">3</span>Turn off Fast Startup</h2>
+      <p>This is the one most guides miss. With Fast Startup on, a "shut down" Windows PC parks in a hybrid state where many adapters stop listening for magic packets, so wake works from sleep but not from shutdown.</p>
+      <p>Open <strong>Control Panel → Power Options → Choose what the power buttons do</strong>, click <strong>Change settings that are currently unavailable</strong>, and untick <strong>Turn on fast startup</strong>:</p>
+      <div class="wol-shot">
+        <div class="win" role="img" aria-label="Illustration of Power Options shutdown settings with fast startup unchecked" style="width:460px">
+          <div class="win-title">System Settings <span class="win-x">✕</span></div>
+          <div class="win-body" style="border-top:none;border-radius:0">
+            <p style="font-weight:600;margin-bottom:10px">Shutdown settings</p>
+            <div class="win-check win-hl"><span class="win-box off"></span><span><strong>Turn on fast startup (recommended)</strong><br><span style="color:#777;font-size:12px">This helps start your PC faster after shutdown.</span></span></div>
+            <div class="win-check"><span class="win-box"></span><span>Sleep<br><span style="color:#777;font-size:12px">Show in Power menu.</span></span></div>
+            <div class="win-check"><span class="win-box"></span><span>Hibernate<br><span style="color:#777;font-size:12px">Show in Power menu.</span></span></div>
+          </div>
+          <div class="win-btns"><span class="win-btn primary">Save changes</span><span class="win-btn">Cancel</span></div>
+        </div>
+      </div>
+      <p>Despite the "(recommended)" label, the boot-time difference on a modern SSD is a second or two, and reliable remote wake is worth far more.</p>
+    </div>
+
+    <div class="wol-step">
+      <h2><span class="wol-step-num">4</span>Check the BIOS / UEFI</h2>
+      <p>Most PCs ship with this on, so try a test wake first. If wake from full shutdown still fails, reboot into BIOS/UEFI setup (usually <span class="wol-kbd">Del</span> or <span class="wol-kbd">F2</span> at power-on) and look for a setting named one of:</p>
+      <ul>
+        <li>Wake on LAN / WOL</li>
+        <li>Power On by PCI-E / PCIe device</li>
+        <li>Resume by LAN, or ErP / EuP mode (set ErP to <em>Disabled</em>, since ErP cuts standby power to the adapter)</li>
+      </ul>
+      <p>It usually lives under Power Management, Advanced, or APM settings. Enable it, save, and exit.</p>
+    </div>
+
+    <div class="wol-step">
+      <h2><span class="wol-step-num">5</span>Test it with Rouse</h2>
+      <p>Put the PC to sleep, then tap its wake button in Rouse, or run <strong>Test the Wake</strong> in the Setup Guide, which sends a magic packet and tells you what it did. If sleep-wake works but shutdown-wake doesn't, revisit steps 3 and 4.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>Waking a Mac instead?</h2>
+      <p>Macs are simpler: turn on <strong>Wake for network access</strong> in System Settings → Battery (desktops: Energy). Note that Apple Silicon Macs return to a light sleep quickly after waking; install Rouse on the target Mac and enable Wake Helper to hold it awake for remote-desktop connections. See <a href="/support.html">Support</a> for details.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>Still stuck?</h2>
+      <p>Wake-on-LAN behavior varies a lot by adapter and motherboard. If these steps don't work, search your PC or motherboard model plus "Wake on LAN" for vendor-specific settings, and check that your Ethernet driver is current.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Ora Serrata LLC</p>
+      <div class="footer-links">
+        <a href="/support.html">Support</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/about.html">About</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Ora Serrata LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
