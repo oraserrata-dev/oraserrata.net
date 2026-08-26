@@ -77,6 +77,25 @@
       transition: opacity 0.2s;
     }
     .download-card:hover .download-btn { opacity: 0.9; }
+    .relay-note {
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--teal);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: var(--space-lg);
+      background: rgba(78, 205, 196, 0.04);
+    }
+    .relay-note h2 {
+      font-size: 1.05rem;
+      margin: 0 0 0.5rem;
+    }
+    .relay-note p {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      margin: 0 0 0.75rem;
+      line-height: 1.7;
+    }
+    .relay-note p:last-child { margin-bottom: 0; }
 
     .docker-section {
       border-radius: 12px;
@@ -227,11 +246,23 @@
 
   <main class="relay-content">
 
+    <div class="relay-note">
+      <h2>Already have a Mac that stays on?</h2>
+      <p>You may not need any of this. Install Rouse on that Mac, open Settings, and turn on Relay Mode. That Mac becomes the relay, with nothing extra to download or keep updated.</p>
+      <p>The standalone server below is for everything else: a Mac with nobody logged in or no App Store access, a Raspberry Pi or NAS, a Windows or Linux machine, or simply a preference for one small program over the full app or a Docker container. It is open source and does one job.</p>
+    </div>
+
     <div class="download-grid">
       <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-macOS-arm64.zip" class="download-card">
         <div class="card-icon">&#63743;</div>
         <div class="card-title">macOS</div>
-        <div class="card-arch">Apple Silicon</div>
+        <div class="card-arch">Apple Silicon (M1 and later)</div>
+        <div class="download-btn">Download</div>
+      </a>
+      <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-macOS-amd64.zip" class="download-card">
+        <div class="card-icon">&#63743;</div>
+        <div class="card-title">macOS</div>
+        <div class="card-arch">Intel</div>
         <div class="download-btn">Download</div>
       </a>
       <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-windows-amd64.zip" class="download-card">
@@ -246,9 +277,15 @@
         <div class="card-arch">x86 64-bit (amd64)</div>
         <div class="download-btn">Download</div>
       </a>
+      <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-linux-arm64.zip" class="download-card">
+        <div class="card-icon">&#128039;</div>
+        <div class="card-title">Linux</div>
+        <div class="card-arch">ARM 64-bit (Raspberry Pi)</div>
+        <div class="download-btn">Download</div>
+      </a>
     </div>
 
-    <p style="font-size: 0.85rem; color: var(--text-muted); margin: -0.5rem 0 var(--space-lg);">Intel Mac or ARM Linux (Raspberry Pi)? <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest">All builds are on GitHub</a>.</p>
+    <p style="font-size: 0.85rem; color: var(--text-muted); margin: -0.5rem 0 var(--space-lg);">Source code, release notes, and checksums are on <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest">GitHub</a>.</p>
 
     <div class="docker-section">
       <div class="docker-header">
@@ -318,7 +355,7 @@
         </div>
         <div class="req-item">
           <h3>Rouse app</h3>
-          <p>Available on the App Store for iPhone, iPad, and Mac. The relay works with Rouse v1.0 and later.</p>
+          <p>Coming soon to the App Store for iPhone, iPad, and Mac. The relay works with Rouse v1.0 and later.</p>
         </div>
       </div>
     </div>
