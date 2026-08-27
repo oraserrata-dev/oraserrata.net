@@ -142,6 +142,19 @@ img { display: block; }
   border-radius: 5px; padding: 0.1rem 0.4rem;
 }
 
+/* On this page: contents block for long articles (privacy, wol-guide) */
+.article h2 { scroll-margin-top: 24px; }
+.toc { border: 1px solid var(--line); border-radius: 10px; padding: 18px 22px 12px; margin-bottom: 48px; }
+.toc .toc-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 12px; }
+.toc-list { list-style: none; columns: 2; column-gap: 40px; counter-reset: toc; }
+.toc-list li { counter-increment: toc; position: relative; padding-left: 30px; margin-bottom: 7px; break-inside: avoid; font-size: 13.5px; line-height: 1.5; }
+.toc-list li::before { content: counter(toc, decimal-leading-zero); position: absolute; left: 0; top: 2.5px; font-family: var(--mono); font-size: 11px; color: var(--faint); }
+.toc-list li.aux { counter-increment: none; }
+.toc-list li.aux::before { content: '\00B7'; }
+.article .toc-list a { color: var(--muted); text-decoration: none; }
+.article .toc-list a:hover { color: var(--ink); }
+@media (max-width: 640px) { .toc-list { columns: 1; } }
+
 /* Responsive */
 @media (max-width: 760px) {
   .wrap { padding: 0 20px; }
