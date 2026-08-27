@@ -8,298 +8,111 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Chivo+Mono:ital,wght@0,300..600;1,300..600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .relay-hero {
-      text-align: center;
-      padding: calc(var(--space-xl) + 2rem) var(--space-md) var(--space-lg);
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-    .relay-hero .app-badge { margin-bottom: var(--space-md); }
-    .relay-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 6vw, 3.5rem);
-      font-weight: 400;
-      margin-bottom: var(--space-sm);
-    }
-    .relay-hero p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      line-height: 1.8;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .relay-content {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--space-md) var(--space-xl);
-    }
-
-    .download-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .download-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 1.75rem 1.25rem;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--teal-soft), var(--orange-soft));
-      border: 1px solid var(--border);
-      text-decoration: none;
-      color: var(--text);
-      transition: border-color 0.3s, transform 0.15s;
-    }
-    .download-card:hover {
-      border-color: rgba(78, 205, 196, 0.25);
-      transform: translateY(-2px);
-      opacity: 1;
-    }
-    .download-card .card-icon { font-size: 2rem; margin-bottom: 0.75rem; line-height: 1; }
-    .download-card .card-icon svg { width: 2rem; height: 2rem; }
-    .download-card .card-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; }
-    .download-card .card-arch { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 1rem; }
-    .download-btn {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--bg);
-      background: var(--teal);
-      padding: 0.4rem 1.25rem;
-      border-radius: 100px;
-      transition: opacity 0.2s;
-    }
-    .download-card:hover .download-btn { opacity: 0.9; }
-    .relay-note {
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--teal);
-      border-radius: 10px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: var(--space-lg);
-      background: rgba(78, 205, 196, 0.04);
-    }
-    .relay-note h2 {
-      font-size: 1.05rem;
-      margin: 0 0 0.5rem;
-    }
-    .relay-note p {
-      font-size: 0.9rem;
-      color: var(--text-dim);
-      margin: 0 0 0.75rem;
-      line-height: 1.7;
-    }
+    .relay-hero { max-width: 720px; padding: 88px 0 48px; }
+    .relay-hero h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); font-weight: 650; letter-spacing: -0.02em; line-height: 1.1; margin: 14px 0 18px; }
+    .relay-hero .lede { font-size: 17px; line-height: 1.55; color: var(--muted); text-wrap: pretty; }
+    .relay-main { max-width: 720px; padding-bottom: 110px; }
+    .relay-note { background: var(--bg-inset); border: 1px solid var(--line); border-radius: 10px; padding: 20px 24px; margin-bottom: 56px; }
+    .relay-note h2 { font-size: 16px; font-weight: 650; letter-spacing: -0.01em; margin-bottom: 10px; }
+    .relay-note p { font-size: 14.5px; line-height: 1.65; color: var(--muted); margin-bottom: 10px; text-wrap: pretty; }
     .relay-note p:last-child { margin-bottom: 0; }
-
-    .docker-section {
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--teal-soft), var(--orange-soft));
-      border: 1px solid var(--border);
-      padding: 1.75rem;
-      margin-bottom: var(--space-lg);
-    }
-    .docker-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.25rem;
-    }
-    .docker-header span:first-child { font-size: 1.5rem; }
-    .docker-header .docker-title { font-weight: 600; font-size: 1rem; }
-    .docker-header .docker-sub { font-size: 0.85rem; color: var(--text-muted); }
-
-    .code-label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.03em;
-    }
-    .code-block {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      font-family: 'DM Sans', monospace;
-      font-size: 0.82rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-      overflow-x: auto;
-      position: relative;
-      margin-bottom: 1rem;
-    }
-    .code-block pre { margin: 0; font-family: inherit; font-size: inherit; line-height: inherit; color: inherit; }
-    .code-block .hl { color: var(--teal); }
-    .copy-btn {
-      position: absolute;
-      top: 0.6rem;
-      right: 0.6rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text-dim);
-      font-size: 0.75rem;
-      font-family: var(--font-body);
-      padding: 0.2rem 0.6rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .copy-btn:hover { color: var(--text); border-color: var(--text-muted); }
-
-    .steps-section {
-      border-top: 1px solid var(--border);
-      padding-top: var(--space-lg);
-      margin-bottom: var(--space-lg);
-    }
-    .steps-section h2 {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-    }
-    .steps-section > p {
-      color: var(--text-muted);
-      margin-bottom: var(--space-md);
-    }
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-    .step {
-      padding: 1.25rem;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--teal-soft), var(--orange-soft));
-      border: 1px solid var(--border);
-    }
-    .step-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px;
-      height: 26px;
-      background: var(--teal-soft);
-      color: var(--teal);
-      font-weight: 700;
-      font-size: 0.8rem;
-      border-radius: 50%;
-      margin-bottom: 0.75rem;
-      border: 1px solid rgba(78, 205, 196, 0.2);
-    }
-    .step h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.35rem; }
-    .step p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
-
-    .req-section {
-      border-top: 1px solid var(--border);
-      padding-top: var(--space-lg);
-    }
-    .req-section h2 {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 400;
-      margin-bottom: var(--space-md);
-    }
-    .req-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-    .req-item {
-      padding: 1.25rem;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--teal-soft), var(--orange-soft));
-      border: 1px solid var(--border);
-    }
-    .req-item h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.35rem; }
-    .req-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
-
-    @media (max-width: 640px) {
-      .relay-hero { padding: calc(var(--space-lg) + 3rem) var(--space-sm) var(--space-md); }
-      .relay-content { padding: 0 var(--space-sm) var(--space-lg); }
-      .download-grid { grid-template-columns: 1fr; }
+    .dl-head { display: grid; grid-template-columns: 150px 1fr auto; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line-strong); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+    .dl-row { display: grid; grid-template-columns: 150px 1fr auto; gap: 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line); color: var(--ink); }
+    .dl-row:hover { background: rgba(237, 230, 216, 0.045); color: var(--ink); }
+    .dl-os { font-size: 17px; font-weight: 600; }
+    .dl-arch { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+    .dl-get { font-family: var(--mono); font-size: 12.5px; color: var(--accent); }
+    .aside { font-size: 13.5px; color: var(--muted); margin: 14px 0 0; }
+    .aside a, .docker-note a { text-decoration: underline; text-decoration-color: var(--accent-dim); text-underline-offset: 3px; }
+    .rsec { margin-top: 72px; border-top: 1px solid var(--line-strong); padding-top: 28px; }
+    .rsec > h2 { font-size: 22px; font-weight: 650; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .sec-sub { font-size: 14.5px; color: var(--muted); margin-bottom: 26px; }
+    .code-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); margin-bottom: 8px; }
+    .codeblock { position: relative; background: var(--bg-inset); border: 1px solid var(--line); border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; overflow-x: auto; }
+    .codeblock pre { font-family: var(--mono); font-size: 12.5px; line-height: 1.7; color: var(--body-c); padding-right: 76px; }
+    .codeblock .hl { color: var(--accent); }
+    .copy-btn { position: absolute; top: 10px; right: 10px; font-family: var(--mono); font-size: 11px; background: var(--bg); border: 1px solid var(--line-strong); border-radius: 6px; padding: 3px 10px; color: var(--muted); cursor: pointer; transition: color 0.15s, border-color 0.15s; }
+    .copy-btn:hover { color: var(--ink); border-color: var(--ink); }
+    .docker-note { font-size: 13.5px; color: var(--muted); }
+    .docker-note code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-inset); border: 1px solid var(--line); border-radius: 5px; padding: 0.1rem 0.4rem; }
+    .steps-list { list-style: none; margin-top: 8px; }
+    .steps-list li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 18px 0; border-top: 1px solid var(--line); }
+    .steps-list li:first-child { border-top: none; }
+    .step-num { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+    .steps-list h3 { font-size: 15.5px; font-weight: 600; margin-bottom: 4px; }
+    .steps-list p { font-size: 14.5px; color: var(--muted); line-height: 1.65; }
+    .rsec .specs { margin-top: 8px; border-bottom: none; }
+    .rsec .spec-row { grid-template-columns: 200px 1fr; }
+    @media (max-width: 760px) {
+      .relay-hero { padding: 56px 0 36px; }
+      .relay-note { background: var(--bg-inset); border: 1px solid var(--line); border-radius: 10px; padding: 20px 24px; margin-bottom: 56px; }
+    .relay-note h2 { font-size: 16px; font-weight: 650; letter-spacing: -0.01em; margin-bottom: 10px; }
+    .relay-note p { font-size: 14.5px; line-height: 1.65; color: var(--muted); margin-bottom: 10px; text-wrap: pretty; }
+    .relay-note p:last-child { margin-bottom: 0; }
+    .dl-head { display: none; }
+      .dl-row { grid-template-columns: 1fr auto; }
+      .dl-arch { grid-column: 1; }
+      .dl-get { grid-column: 2; grid-row: 1; }
+      .rsec .spec-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
-  <nav class="nav">
-    <a href="/" class="nav-brand">Ora Serrata</a>
-    <div class="nav-links">
-      <a href="/about.html">About</a>
-      <a href="/support.html">Support</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
+  <header class="site-head">
+    <div class="wrap head-in">
+      <a href="index.html" class="brand"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" fill="currentColor" d="M12 2A10 10 0 1 1 11.99 2Z M18.90 12.00L17.27 12.59L18.73 13.54L17.00 13.75L18.22 14.99L16.49 14.82L17.39 16.30L15.75 15.75L16.30 17.39L14.82 16.49L14.99 18.22L13.75 17.00L13.54 18.73L12.59 17.27L12.00 18.90L11.41 17.27L10.46 18.73L10.25 17.00L9.01 18.22L9.18 16.49L7.70 17.39L8.25 15.75L6.61 16.30L7.51 14.82L5.78 14.99L7.00 13.75L5.27 13.54L6.73 12.59L5.10 12.00L6.73 11.41L5.27 10.46L7.00 10.25L5.78 9.01L7.51 9.18L6.61 7.70L8.25 8.25L7.70 6.61L9.18 7.51L9.01 5.78L10.25 7.00L10.46 5.27L11.41 6.73L12.00 5.10L12.59 6.73L13.54 5.27L13.75 7.00L14.99 5.78L14.82 7.51L16.30 6.61L15.75 8.25L17.39 7.70L16.49 9.18L18.22 9.01L17.00 10.25L18.73 10.46L17.27 11.41Z"></path></svg> Ora Serrata</a>
+      <nav class="site-nav">
+        <a href="about.html">About</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
     </div>
-  </nav>
+  </header>
+  <main class="wrap">
+    <section class="relay-hero">
+      <p class="kicker"><span class="num">Utility</span> · Version 1.3.1 · <a href="index.html#rouse" style="color:inherit">For Rouse</a></p>
+      <h1>Rouse Relay</h1>
+      <p class="lede">A lightweight server that receives wake requests from the Rouse app and broadcasts Wake-on-LAN packets on your local network. Install it on any always-on device.</p>
+    </section>
 
-  <section class="relay-hero">
-    <div class="app-badge">v1.3.1</div>
-    <h1>Rouse Relay</h1>
-    <p>A lightweight server that receives wake requests from the Rouse app and broadcasts Wake-on-LAN packets on your local network. Install it on any always-on device.</p>
-  </section>
-
-  <main class="relay-content">
-
-    <div class="relay-note">
-      <h2>Already have a Mac that stays on?</h2>
-      <p>You may not need the standalone server at all. Download Rouse from the Mac App Store on that Mac, open Settings, and turn on Relay Mode. Rouse then shows you the handful of values to enter on the devices you wake from. That Mac becomes the relay, with no separate server to install or keep updated.</p>
-      <p>The standalone server below is for everything else: a Mac with no Apple ID signed in, and therefore no access to the App Store; a Raspberry Pi, NAS, or home server; a Windows or Linux machine; or simply a preference for one small program over the full app or a Docker container. It is open source and does one job.</p>
-    </div>
-
-    <div class="download-grid">
-      <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-macOS-arm64.zip" class="download-card">
-        <div class="card-icon">&#63743;</div>
-        <div class="card-title">macOS</div>
-        <div class="card-arch">Apple Silicon (M1 and later)</div>
-        <div class="download-btn">Download</div>
-      </a>
-      <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-macOS-amd64.zip" class="download-card">
-        <div class="card-icon">&#63743;</div>
-        <div class="card-title">macOS</div>
-        <div class="card-arch">Intel</div>
-        <div class="download-btn">Download</div>
-      </a>
-      <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-windows-amd64.zip" class="download-card">
-        <div class="card-icon"><svg width="32" height="32" viewBox="0 0 88 88" fill="currentColor"><path d="M0 12.402l35.687-4.86.016 34.423-35.67.203zm35.67 33.529l.028 34.453L.028 75.48.026 45.7zm4.326-39.025L87.314 0v42.228L40.004 42.57zM87.326 45.997L87.314 88l-47.29-6.695-.076-35.377z"/></svg></div>
-        <div class="card-title">Windows</div>
-        <div class="card-arch">64-bit (x86_64)</div>
-        <div class="download-btn">Download</div>
-      </a>
-      <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-linux-amd64.zip" class="download-card">
-        <div class="card-icon">&#128039;</div>
-        <div class="card-title">Linux</div>
-        <div class="card-arch">x86 64-bit (amd64)</div>
-        <div class="download-btn">Download</div>
-      </a>
-      <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-linux-arm64.zip" class="download-card">
-        <div class="card-icon">&#128039;</div>
-        <div class="card-title">Linux</div>
-        <div class="card-arch">ARM 64-bit (Raspberry Pi)</div>
-        <div class="download-btn">Download</div>
-      </a>
-    </div>
-
-    <p style="font-size: 0.85rem; color: var(--text-muted); margin: -0.5rem 0 0.75rem;">Whichever build you choose, run it on a device that stays powered on and awake, and that sits on the same network as the machines you want to wake. A relay that sleeps cannot receive your wake requests.</p>
-
-    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0 0 var(--space-lg);">Source code, release notes, and checksums are on <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest">GitHub</a>.</p>
-
-    <div class="docker-section">
-      <div class="docker-header">
-        <span>&#128051;</span>
-        <div>
-          <div class="docker-title">Docker</div>
-          <div class="docker-sub">For Synology, QNAP, Raspberry Pi, or any Docker host</div>
-        </div>
+    <div class="relay-main">
+      <div class="relay-note">
+        <h2>Already have a Mac that stays on?</h2>
+        <p>You may not need the standalone server at all. Download Rouse from the Mac App Store on that Mac, open Settings, and turn on Relay Mode. Rouse then shows you the handful of values to enter on the devices you wake from. That Mac becomes the relay, with no separate server to install or keep updated.</p>
+        <p>The standalone server below is for everything else: a Mac with no Apple ID signed in, and therefore no access to the App Store; a Raspberry Pi, NAS, or home server; a Windows or Linux machine; or simply a preference for one small program over the full app or a Docker container. It is open source and does one job.</p>
       </div>
-      <div class="code-label">Docker Compose</div>
-      <div class="code-block">
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+      <section aria-label="Downloads">
+        <div class="dl-head"><span>Platform</span><span>Build</span><span></span></div>
+        <a class="dl-row" href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-macOS-arm64.zip">
+          <span class="dl-os">macOS</span><span class="dl-arch">Apple Silicon (M1 and later)</span><span class="dl-get">Download ↓</span>
+        </a>
+        <a class="dl-row" href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-macOS-amd64.zip">
+          <span class="dl-os">macOS</span><span class="dl-arch">Intel</span><span class="dl-get">Download ↓</span>
+        </a>
+        <a class="dl-row" href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-windows-amd64.zip">
+          <span class="dl-os">Windows</span><span class="dl-arch">64-bit (x86_64)</span><span class="dl-get">Download ↓</span>
+        </a>
+        <a class="dl-row" href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-linux-amd64.zip">
+          <span class="dl-os">Linux</span><span class="dl-arch">x86 64-bit (amd64)</span><span class="dl-get">Download ↓</span>
+        </a>
+        <a class="dl-row" href="https://github.com/oraserrata-dev/rouse-relay/releases/latest/download/RouseRelay-linux-arm64.zip">
+          <span class="dl-os">Linux</span><span class="dl-arch">ARM 64-bit (Raspberry Pi)</span><span class="dl-get">Download ↓</span>
+        </a>
+        <p class="aside">Whichever build you choose, run it on a device that stays powered on and awake, and that sits on the same network as the machines you want to wake. A relay that sleeps cannot receive your wake requests.</p>
+        <p class="aside">Source code, release notes, and checksums are on <a href="https://github.com/oraserrata-dev/rouse-relay/releases/latest">GitHub</a>.</p>
+      </section>
+
+      <section class="rsec">
+        <h2>Docker</h2>
+        <p class="sec-sub">For Synology, QNAP, Raspberry Pi, or any Docker host.</p>
+        <div class="code-label">Docker Compose</div>
+        <div class="codeblock">
+          <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <pre>services:
   rouse-relay:
     image: <span class="hl">oraserrata/rouse-relay:latest</span>
@@ -308,75 +121,73 @@
     network_mode: host
     environment:
       - AUTH_TOKEN=<span class="hl">your-password-here</span></pre>
-      </div>
-      <div class="code-label">Docker CLI</div>
-      <div class="code-block">
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        </div>
+        <div class="code-label">Docker CLI</div>
+        <div class="codeblock">
+          <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <pre>docker run -d \
     --name rouse-relay \
     --network host \
     --restart unless-stopped \
     -e AUTH_TOKEN=<span class="hl">your-password-here</span> \
     <span class="hl">oraserrata/rouse-relay:latest</span></pre>
-      </div>
-      <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Replace <code>your-password-here</code> with a token generated in Rouse's relay settings. The relay refuses to start with the placeholder.</p>
-    </div>
+        </div>
+        <p class="docker-note">Replace <code>your-password-here</code> with a token generated in Rouse's relay settings. The relay refuses to start with the placeholder.</p>
+      </section>
 
-    <div class="steps-section">
-      <h2>How it works</h2>
-      <p>The relay sits between the Rouse app and your sleeping devices.</p>
-      <div class="steps-grid">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>Install the relay</h3>
-          <p>Unzip the download on any always-on device, open the install script, and set AUTH_TOKEN to a token you generate in Rouse. The installer refuses to run with the placeholder.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>Connect via VPN</h3>
-          <p>Set up Tailscale, WireGuard, or OpenVPN so you can reach your home network when you're away.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>Configure Rouse</h3>
-          <p>In Rouse, edit your home Location, enter the relay's address and your token under Remote relay, then use Test Connection to verify.</p>
-        </div>
-      </div>
-    </div>
+      <section class="rsec">
+        <h2>How it works</h2>
+        <p class="sec-sub">The relay sits between the Rouse app and your sleeping devices.</p>
+        <ol class="steps-list">
+          <li>
+            <span class="step-num">01</span>
+            <div>
+              <h3>Install the relay</h3>
+              <p>Unzip the download on any always-on device, open the install script, and set AUTH_TOKEN to a token you generate in Rouse. The installer refuses to run with the placeholder.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">02</span>
+            <div>
+              <h3>Connect via VPN</h3>
+              <p>Set up Tailscale, WireGuard, or OpenVPN so you can reach your home network when you're away.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">03</span>
+            <div>
+              <h3>Configure Rouse</h3>
+              <p>In Rouse, edit your home Location, enter the relay's address and your token under Remote relay, then use Test Connection to verify.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
 
-    <div class="req-section">
-      <h2>Requirements</h2>
-      <div class="req-grid">
-        <div class="req-item">
-          <h3>Always-on device</h3>
-          <p>The relay needs to run on a device that stays powered on and connected to the same network as the devices you want to wake.</p>
-        </div>
-        <div class="req-item">
-          <h3>VPN for remote access</h3>
-          <p>To wake devices when you're away from home, you need a VPN that connects you to your home network. Tailscale is the easiest option.</p>
-        </div>
-        <div class="req-item">
-          <h3>Rouse app</h3>
-          <p>Available on the App Store for iPhone, iPad, and Mac. The relay works with Rouse v1.0 and later.</p>
-        </div>
-      </div>
+      <section class="rsec">
+        <h2>Requirements</h2>
+        <dl class="specs">
+          <div class="spec-row"><dt>Always-on device</dt><dd>The relay needs to run on a device that stays powered on and connected to the same network as the devices you want to wake.</dd></div>
+          <div class="spec-row"><dt>VPN for remote access</dt><dd>To wake devices when you're away from home, you need a VPN that connects you to your home network. Tailscale is the easiest option.</dd></div>
+          <div class="spec-row"><dt>Rouse app</dt><dd>Available on the App Store for iPhone, iPad, and Mac. The relay works with Rouse v1.0 and later.</dd></div>
+        </dl>
+      </section>
     </div>
-
   </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <p class="footer-brand">Ora Serrata LLC</p>
-      <div class="footer-links">
-        <a href="/support.html">Support</a>
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms of Service</a>
-        <a href="/about.html">About</a>
+  <footer class="site-foot">
+    <div class="wrap foot-grid">
+      <div>
+        <div class="foot-brand"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" fill="currentColor" d="M12 2A10 10 0 1 1 11.99 2Z M18.90 12.00L17.27 12.59L18.73 13.54L17.00 13.75L18.22 14.99L16.49 14.82L17.39 16.30L15.75 15.75L16.30 17.39L14.82 16.49L14.99 18.22L13.75 17.00L13.54 18.73L12.59 17.27L12.00 18.90L11.41 17.27L10.46 18.73L10.25 17.00L9.01 18.22L9.18 16.49L7.70 17.39L8.25 15.75L6.61 16.30L7.51 14.82L5.78 14.99L7.00 13.75L5.27 13.54L6.73 12.59L5.10 12.00L6.73 11.41L5.27 10.46L7.00 10.25L5.78 9.01L7.51 9.18L6.61 7.70L8.25 8.25L7.70 6.61L9.18 7.51L9.01 5.78L10.25 7.00L10.46 5.27L11.41 6.73L12.00 5.10L12.59 6.73L13.54 5.27L13.75 7.00L14.99 5.78L14.82 7.51L16.30 6.61L15.75 8.25L17.39 7.70L16.49 9.18L18.22 9.01L17.00 10.25L18.73 10.46L17.27 11.41Z"></path></svg> Ora Serrata LLC</div>
+        <p class="footnote"><em>ora serrata</em>, n. — the serrated edge where the retina ends, and seeing begins.</p>
       </div>
-      <p class="footer-copy">&copy; 2026 Ora Serrata LLC. All rights reserved.</p>
+      <nav class="foot-nav">
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="about.html">About</a>
+      </nav>
+      <p class="copyright">© 2026 Ora Serrata LLC.<br>All rights reserved.</p>
     </div>
   </footer>
-
   <script>
   function copyCode(btn) {
     const pre = btn.parentElement.querySelector('pre');
@@ -386,6 +197,5 @@
     });
   }
   </script>
-
 </body>
 </html>

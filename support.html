@@ -8,69 +8,62 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Chivo+Mono:ital,wght@0,300..600;1,300..600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <nav class="nav">
-    <a href="/" class="nav-brand">Ora Serrata</a>
-    <div class="nav-links">
-      <a href="/about.html">About</a>
-      <a href="/support.html">Support</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
+  <header class="site-head">
+    <div class="wrap head-in">
+      <a href="index.html" class="brand"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" fill="currentColor" d="M12 2A10 10 0 1 1 11.99 2Z M18.90 12.00L17.27 12.59L18.73 13.54L17.00 13.75L18.22 14.99L16.49 14.82L17.39 16.30L15.75 15.75L16.30 17.39L14.82 16.49L14.99 18.22L13.75 17.00L13.54 18.73L12.59 17.27L12.00 18.90L11.41 17.27L10.46 18.73L10.25 17.00L9.01 18.22L9.18 16.49L7.70 17.39L8.25 15.75L6.61 16.30L7.51 14.82L5.78 14.99L7.00 13.75L5.27 13.54L6.73 12.59L5.10 12.00L6.73 11.41L5.27 10.46L7.00 10.25L5.78 9.01L7.51 9.18L6.61 7.70L8.25 8.25L7.70 6.61L9.18 7.51L9.01 5.78L10.25 7.00L10.46 5.27L11.41 6.73L12.00 5.10L12.59 6.73L13.54 5.27L13.75 7.00L14.99 5.78L14.82 7.51L16.30 6.61L15.75 8.25L17.39 7.70L16.49 9.18L18.22 9.01L17.00 10.25L18.73 10.46L17.27 11.41Z"></path></svg> Ora Serrata</a>
+      <nav class="site-nav">
+        <a href="about.html">About</a>
+        <a href="support.html" class="on">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
     </div>
-  </nav>
+  </header>
+  <main class="wrap">
+    <article class="article">
+      <h1>Support</h1>
+      <p class="kicker date">Help with Rouse and other Ora Serrata apps</p>
 
-  <main class="legal-page">
-    <h1>Support</h1>
-    <p class="legal-date">Help with Rouse and other Ora Serrata apps.</p>
-
-    <div class="about-section">
       <h2>Get in touch</h2>
       <p>Email <a href="mailto:hello@oraserrata.net">hello@oraserrata.net</a> with questions, bug reports, or feedback. Ora Serrata is a one-person studio, so replies can take time, but every message gets read.</p>
-    </div>
 
-    <div class="about-section">
       <h2>Rouse setup</h2>
       <p>Rouse includes a built-in Setup Guide that walks you through enabling Wake-on-LAN on your target devices and configuring remote wake. Open the app and look for "Setup Guide" in the menu.</p>
       <p>You need three things for remote wake to work: a target device with Wake-on-LAN enabled in its BIOS or system settings, an always-on machine on your home network running Rouse Relay, and a VPN like Tailscale so your phone can reach your home network when you're away.</p>
-      <p>Setting up a Windows PC? See the step-by-step guide: <a href="/wol-guide.html">Enable Wake-on-LAN on Windows</a>.</p>
-    </div>
+      <p>Setting up a Windows PC? See the step-by-step guide: <a href="wol-guide.html">Enable Wake-on-LAN on Windows</a>.</p>
 
-    <div class="about-section">
       <h2>Rouse Relay</h2>
-      <p>The Rouse Relay server enables remote wake when you're away from home. Downloads for macOS, Windows, Linux, and Docker are at <a href="/relay.html">oraserrata.net/relay</a>.</p>
+      <p>The Rouse Relay server enables remote wake when you're away from home. Downloads for macOS, Windows, Linux, and Docker are at <a href="relay.html">oraserrata.net/relay</a>.</p>
       <p>For relay-specific issues or feature requests, you can also open a GitHub issue at <a href="https://github.com/oraserrata-dev/rouse-relay/issues">github.com/oraserrata-dev/rouse-relay/issues</a>.</p>
-    </div>
 
-    <div class="about-section">
       <h2>Common questions</h2>
-      <p><strong>The wake button does nothing.</strong> Check that your target device has Wake-on-LAN enabled in its BIOS or system settings, and that it's connected via Ethernet. Wi-Fi-only Wake-on-LAN is unreliable on most hardware. Windows users: see <a href="/wol-guide.html">the Windows Wake-on-LAN guide</a>.</p>
+      <p><strong>The wake button does nothing.</strong> Check that your target device has Wake-on-LAN enabled in its BIOS or system settings, and that it's connected via Ethernet. Wi-Fi-only Wake-on-LAN is unreliable on most hardware. Windows users: see <a href="wol-guide.html">the Windows Wake-on-LAN guide</a>.</p>
       <p><strong>My Apple Silicon Mac wakes briefly then goes back to sleep.</strong> That's expected. Apple Silicon Macs return to Dark Wake quickly after a magic packet. Install Rouse on the target Mac and enable Wake Helper in its Settings. Wake Helper holds the system fully awake long enough for Screen Sharing, Parsec, or TeamViewer to connect.</p>
       <p><strong>Can I wake my Mac remotely without setting up a VPN?</strong> Only if you forward a port on your router to expose your Rouse Relay to the public internet, which we don't recommend. A VPN like Tailscale gives you remote access without exposing anything publicly.</p>
       <p><strong>Why does Rouse ask for Location permission?</strong> Apple gates access to the current Wi-Fi network's name behind the Location permission, even when you only want the network name and not your geographic location. Rouse reads only the network name and BSSID, never your geographic position.</p>
-    </div>
 
-    <div class="about-section">
       <h2>Privacy and terms</h2>
-      <p>For information about how Rouse handles data, see the <a href="/privacy.html">Privacy Policy</a>. For terms of use, see the <a href="/terms.html">Terms of Service</a>.</p>
-    </div>
+      <p>For information about how Rouse handles data, see the <a href="privacy.html">Privacy Policy</a>. For terms of use, see the <a href="terms.html">Terms of Service</a>.</p>
+    </article>
   </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <p class="footer-brand">Ora Serrata LLC</p>
-      <div class="footer-links">
-        <a href="/support.html">Support</a>
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms of Service</a>
-        <a href="/about.html">About</a>
+  <footer class="site-foot">
+    <div class="wrap foot-grid">
+      <div>
+        <div class="foot-brand"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" fill="currentColor" d="M12 2A10 10 0 1 1 11.99 2Z M18.90 12.00L17.27 12.59L18.73 13.54L17.00 13.75L18.22 14.99L16.49 14.82L17.39 16.30L15.75 15.75L16.30 17.39L14.82 16.49L14.99 18.22L13.75 17.00L13.54 18.73L12.59 17.27L12.00 18.90L11.41 17.27L10.46 18.73L10.25 17.00L9.01 18.22L9.18 16.49L7.70 17.39L8.25 15.75L6.61 16.30L7.51 14.82L5.78 14.99L7.00 13.75L5.27 13.54L6.73 12.59L5.10 12.00L6.73 11.41L5.27 10.46L7.00 10.25L5.78 9.01L7.51 9.18L6.61 7.70L8.25 8.25L7.70 6.61L9.18 7.51L9.01 5.78L10.25 7.00L10.46 5.27L11.41 6.73L12.00 5.10L12.59 6.73L13.54 5.27L13.75 7.00L14.99 5.78L14.82 7.51L16.30 6.61L15.75 8.25L17.39 7.70L16.49 9.18L18.22 9.01L17.00 10.25L18.73 10.46L17.27 11.41Z"></path></svg> Ora Serrata LLC</div>
+        <p class="footnote"><em>ora serrata</em>, n. — the serrated edge where the retina ends, and seeing begins.</p>
       </div>
-      <p class="footer-copy">&copy; 2026 Ora Serrata LLC. All rights reserved.</p>
+      <nav class="foot-nav">
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="about.html">About</a>
+      </nav>
+      <p class="copyright">© 2026 Ora Serrata LLC.<br>All rights reserved.</p>
     </div>
   </footer>
-
 </body>
 </html>

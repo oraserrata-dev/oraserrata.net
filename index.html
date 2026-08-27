@@ -8,131 +8,104 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Chivo+Mono:ital,wght@0,300..600;1,300..600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <nav class="nav">
-    <a href="/" class="nav-brand">Ora Serrata</a>
-    <div class="nav-links">
-      <a href="/about.html">About</a>
-      <a href="/support.html">Support</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
+  <header class="site-head">
+    <div class="wrap head-in">
+      <a href="index.html" class="brand"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" fill="currentColor" d="M12 2A10 10 0 1 1 11.99 2Z M18.90 12.00L17.27 12.59L18.73 13.54L17.00 13.75L18.22 14.99L16.49 14.82L17.39 16.30L15.75 15.75L16.30 17.39L14.82 16.49L14.99 18.22L13.75 17.00L13.54 18.73L12.59 17.27L12.00 18.90L11.41 17.27L10.46 18.73L10.25 17.00L9.01 18.22L9.18 16.49L7.70 17.39L8.25 15.75L6.61 16.30L7.51 14.82L5.78 14.99L7.00 13.75L5.27 13.54L6.73 12.59L5.10 12.00L6.73 11.41L5.27 10.46L7.00 10.25L5.78 9.01L7.51 9.18L6.61 7.70L8.25 8.25L7.70 6.61L9.18 7.51L9.01 5.78L10.25 7.00L10.46 5.27L11.41 6.73L12.00 5.10L12.59 6.73L13.54 5.27L13.75 7.00L14.99 5.78L14.82 7.51L16.30 6.61L15.75 8.25L17.39 7.70L16.49 9.18L18.22 9.01L17.00 10.25L18.73 10.46L17.27 11.41Z"></path></svg> Ora Serrata</a>
+      <nav class="site-nav">
+        <a href="about.html">About</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
     </div>
-  </nav>
-
-  <main>
+  </header>
+  <main class="wrap">
     <section class="hero">
-      <div class="hero-content">
-        <p class="hero-tagline">Software Studio</p>
-        <h1 class="hero-title">Where clarity<br>meets craft.</h1>
-        <p class="hero-sub">We build focused, well-crafted apps for Apple platforms.<br>One app at a time. No distractions.</p>
-      </div>
-      <div class="hero-glow"></div>
-      <div class="hero-rings"></div>
+      <p class="kicker">Independent software studio</p>
+      <h1 class="display">We build focused, well-crafted apps for Apple platforms.</h1>
     </section>
 
-    <section class="app-section" id="rouse">
-      <div class="app-badge">Now in Development</div>
-      <div class="app-header">
-        <img src="logo.jpg" alt="Rouse app icon" class="app-icon-img">
-        <h2 class="app-name">Rouse</h2>
+    <section class="app" id="rouse">
+      <div class="app-meta"><span class="num"><span class="numero">N<span class="o">o</span></span> 01 · Application</span><span class="status"><span class="dot"></span>In development</span></div>
+      <div class="app-grid">
+        <div>
+          <img src="logo.jpg" alt="Rouse app icon" class="plate">
+          <ul class="plat-list">
+            <li>iOS</li>
+            <li>iPadOS</li>
+            <li>macOS</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="app-name">Rouse</h2>
+          <p class="app-lede">Wake your devices from anywhere.</p>
+          <p class="app-body">Rouse is a Wake-on-LAN app for iPhone, iPad, and Mac that lets you power on your computers remotely, whether you're across the room or across the world.</p>
+        </div>
       </div>
-      <p class="app-description">Wake your devices from anywhere.</p>
-      <div class="app-details">
-        <p>Rouse is a Wake-on-LAN app for iPhone, iPad, and Mac that lets you power on your computers remotely, whether you're across the room or across the world.</p>
-        <ul class="feature-list">
-          <li>
-            <span class="feature-icon">◉</span>
-            <div>
-              <strong>Local & Remote Wake</strong>
-              <span>Send magic packets on your LAN, or wake devices over the internet through a lightweight relay.</span>
-            </div>
-          </li>
-          <li>
-            <span class="feature-icon">◉</span>
-            <div>
-              <strong>iCloud Sync</strong>
-              <span>Your device list stays in sync across all your Apple devices, automatically.</span>
-            </div>
-          </li>
-          <li>
-            <span class="feature-icon">◉</span>
-            <div>
-              <strong>Widgets & Shortcuts</strong>
-              <span>Wake a device from your Home Screen, Lock Screen, or with Siri, no app launch required.</span>
-            </div>
-          </li>
-          <li>
-            <span class="feature-icon">◉</span>
-            <div>
-              <strong>Built for Apple</strong>
-              <span>Native SwiftUI on every platform. Designed to feel right at home on iOS, iPadOS, and macOS.</span>
-            </div>
-          </li>
-        </ul>
+      <dl class="specs">
+        <div class="spec-row"><dt>Local &amp; remote wake</dt><dd>Send magic packets on your LAN, or wake devices over the internet through a lightweight relay.</dd></div>
+        <div class="spec-row"><dt>iCloud sync</dt><dd>Your device list stays in sync across all your Apple devices, automatically.</dd></div>
+        <div class="spec-row"><dt>Widgets &amp; Shortcuts</dt><dd>Wake a device from your Home Screen, Lock Screen, or with Siri, no app launch required.</dd></div>
+        <div class="spec-row"><dt>Built for Apple</dt><dd>Native SwiftUI on every platform. Designed to feel right at home on iOS, iPadOS, and macOS.</dd></div>
+      </dl>
+      <div class="cta-row">
+        <p class="mono-note">Coming soon to the App Store</p>
+        <a href="relay.html" class="mono-link">Download Rouse Relay ↗</a>
       </div>
-      <p class="app-cta">Coming soon to the App Store.</p>
-<p style="margin-top: 1.5rem;"><a href="/relay.html" class="contact-link" style="font-family: var(--font-body); font-size: 0.9rem;">Download Rouse Relay</a></p>
     </section>
 
-    <section class="app-section" id="fovea">
-      <div class="app-badge">Now in Development</div>
-      <div class="app-header">
-        <img src="fovea-icon.png" alt="Fovea app icon" class="app-icon-img">
-        <h2 class="app-name">Fovea</h2>
+    <section class="app" id="fovea">
+      <div class="app-meta"><span class="num"><span class="numero">N<span class="o">o</span></span> 02 · Application</span><span class="status"><span class="dot"></span>In development</span></div>
+      <div class="app-grid">
+        <div>
+          <img src="fovea-icon.png" alt="Fovea app icon" class="plate">
+          <ul class="plat-list">
+            <li>macOS</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="app-name">Fovea</h2>
+          <p class="app-lede">Clip it, convert it, file it.</p>
+          <p class="app-body">Fovea is your clipboard's companion: a small, focused app that turns whatever you copy into a file, in the format you choose. Screenshots, PDFs, and AI-written Markdown become the file format you actually need, entirely on your Mac. Nothing you copy ever leaves it.</p>
+        </div>
       </div>
-      <p class="app-description">Save your clipboard as a file.</p>
-      <div class="app-details">
-        <p>Fovea is a small Mac utility that turns whatever is on your clipboard into a file in the format you choose: images as PNG, JPEG, PDF, HEIC, or TIFF; PDFs as documents or images; text as plain text, Markdown, or rich text.</p>
-        <ul class="feature-list">
-          <li>
-            <span class="feature-icon">◉</span>
-            <div>
-              <strong>Pick Your Format</strong>
-              <span>Preview what you copied, choose the format, and see the estimated file size before you save.</span>
-            </div>
-          </li>
-          <li>
-            <span class="feature-icon">◉</span>
-            <div>
-              <strong>One-Keystroke Saves</strong>
-              <span>Quick Save writes straight to a folder you choose once, or drag the preview into any app as a file.</span>
-            </div>
-          </li>
-          <li>
-            <span class="feature-icon">◉</span>
-            <div>
-              <strong>Private by Design</strong>
-              <span>Reads the clipboard only while it's open. No monitoring, no history, no network access.</span>
-            </div>
-          </li>
-        </ul>
+      <dl class="specs">
+        <div class="spec-row"><dt>Every format you need</dt><dd>Images save as PNG, JPEG, PDF, HEIC, or TIFF. PDFs stay PDF or rasterize to an image. Text saves as plain text, Markdown, rich text, or HTML. A live hint shows the estimated file size before you commit.</dd></div>
+        <div class="spec-row"><dt>Built for the AI era</dt><dd>Answers from AI assistants arrive as Markdown. Fovea converts it locally: render Markdown into rich text for Word or email, into clean HTML for your site or newsletter, or strip the syntax entirely for a plain-text paste.</dd></div>
+        <div class="spec-row"><dt>Three ways to save</dt><dd>Save As gives you the full panel: name it, place it, every time. Quick Save writes instantly to a folder you choose once. Or drag the preview straight into Finder, Mail, or Slack as a finished file.</dd></div>
+        <div class="spec-row"><dt>Private by design</dt><dd>Fovea reads the clipboard only while it's open, and only to show you the preview. It never monitors in the background, keeps no history of what you copy, has no network access, and collects nothing.</dd></div>
+      </dl>
+      <div class="cta-row">
+        <p class="mono-note">Coming soon to the Mac App Store</p>
       </div>
-      <p class="app-cta">Coming soon to the Mac App Store.</p>
     </section>
 
-    <section class="contact-section">
+    <section class="contact">
       <h2>Get in touch</h2>
-      <p>Questions, feedback, or just want to say hello?</p>
-      <a href="mailto:hello@oraserrata.net" class="contact-link">hello@oraserrata.net</a>
+      <div>
+        <p>Questions, feedback, or just want to say hello?</p>
+        <a href="mailto:hello@oraserrata.net" class="email">hello@oraserrata.net</a>
+      </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <p class="footer-brand">Ora Serrata LLC</p>
-      <div class="footer-links">
-        <a href="/support.html">Support</a>
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms of Service</a>
-        <a href="/about.html">About</a>
+  <footer class="site-foot">
+    <div class="wrap foot-grid">
+      <div>
+        <div class="foot-brand"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" fill="currentColor" d="M12 2A10 10 0 1 1 11.99 2Z M18.90 12.00L17.27 12.59L18.73 13.54L17.00 13.75L18.22 14.99L16.49 14.82L17.39 16.30L15.75 15.75L16.30 17.39L14.82 16.49L14.99 18.22L13.75 17.00L13.54 18.73L12.59 17.27L12.00 18.90L11.41 17.27L10.46 18.73L10.25 17.00L9.01 18.22L9.18 16.49L7.70 17.39L8.25 15.75L6.61 16.30L7.51 14.82L5.78 14.99L7.00 13.75L5.27 13.54L6.73 12.59L5.10 12.00L6.73 11.41L5.27 10.46L7.00 10.25L5.78 9.01L7.51 9.18L6.61 7.70L8.25 8.25L7.70 6.61L9.18 7.51L9.01 5.78L10.25 7.00L10.46 5.27L11.41 6.73L12.00 5.10L12.59 6.73L13.54 5.27L13.75 7.00L14.99 5.78L14.82 7.51L16.30 6.61L15.75 8.25L17.39 7.70L16.49 9.18L18.22 9.01L17.00 10.25L18.73 10.46L17.27 11.41Z"></path></svg> Ora Serrata LLC</div>
+        <p class="footnote"><em>ora serrata</em>, n. — the serrated edge where the retina ends, and seeing begins.</p>
       </div>
-      <p class="footer-copy">&copy; 2026 Ora Serrata LLC. All rights reserved.</p>
+      <nav class="foot-nav">
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="about.html">About</a>
+      </nav>
+      <p class="copyright">© 2026 Ora Serrata LLC.<br>All rights reserved.</p>
     </div>
   </footer>
-
 </body>
 </html>
