@@ -86,11 +86,6 @@ img { display: block; }
   border: 1px solid var(--line-strong);
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
 }
-.plat-list {
-  list-style: none; margin-top: 16px; display: grid; gap: 6px;
-  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--muted);
-}
-.plat-list .aside-note { color: var(--faint); }
 .app-name { font-size: 42px; font-weight: 650; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 6px; }
 .app-lede { font-size: 20px; margin-bottom: 22px; }
 .app-body { font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
@@ -99,6 +94,7 @@ img { display: block; }
 .spec-row { display: grid; grid-template-columns: 230px 1fr; gap: 24px; padding: 16px 0; border-top: 1px solid var(--line); }
 .spec-row dt { font-size: 15px; font-weight: 600; }
 .spec-row dd { font-size: 15px; color: var(--muted); line-height: 1.65; max-width: 620px; }
+.spec-row dd.plat { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; }
 
 .cta-row { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; margin-top: 32px; }
 .mono-note { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
@@ -156,7 +152,6 @@ img { display: block; }
   .app-meta { margin-bottom: 32px; flex-wrap: wrap; }
   .app-grid { grid-template-columns: 1fr; gap: 28px; }
   .plate { width: 104px; height: 104px; border-radius: 24px; }
-  .plat-list { margin-top: 12px; }
   .app-name { font-size: 34px; }
   .specs { margin-top: 36px; }
   .spec-row { grid-template-columns: 1fr; gap: 4px; }
