@@ -120,7 +120,7 @@ img { display: block; }
 .site-foot { border-top: 1px solid var(--line-strong); }
 .foot-grid { display: grid; grid-template-columns: 1fr auto auto; gap: 64px; align-items: start; padding-top: 44px; padding-bottom: 56px; }
 .foot-brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; }
-.footnote { margin-top: 14px; font-family: var(--mono); font-size: 11px; line-height: 1.7; color: var(--faint); max-width: 340px; }
+.footnote { margin-top: 14px; font-family: var(--mono); font-size: 11px; line-height: 1.7; color: var(--faint); max-width: 480px; }
 .footnote em { font-style: italic; }
 .foot-nav { display: grid; gap: 10px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; }
 .foot-nav a { color: var(--muted); }
@@ -128,7 +128,7 @@ img { display: block; }
 .copyright { font-family: var(--mono); font-size: 11px; color: var(--faint); }
 
 /* Article pages (about, support, legal, guides) */
-.article { max-width: 720px; padding: 88px 0 110px; }
+.article { max-width: 720px; margin: 0 auto; padding: 88px 0 110px; }
 .article h1 { font-size: clamp(2.1rem, 5vw, 3rem); font-weight: 650; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 10px; }
 .article .date { margin-bottom: 56px; }
 .article h1 + h2, .article h1 + p { margin-top: 44px; }
@@ -164,3 +164,16 @@ img { display: block; }
   .foot-grid { grid-template-columns: 1fr; gap: 28px; padding-top: 36px; padding-bottom: 44px; }
   .article { padding: 56px 0 72px; }
 }
+
+/* Relay page: jump links to the two install paths, so neither is buried. */
+.relay-jump { font-family: var(--mono); font-size: 12px; color: var(--faint); margin: 0 0 18px; letter-spacing: 0.02em; }
+.relay-jump span { color: var(--faint); }
+.relay-jump a { color: var(--accent); }
+
+/* Downloads index */
+.dl-index { display: grid; gap: 14px; margin: 28px 0 40px; }
+.dl-card { display: block; border: 1px solid var(--line); border-radius: 10px; padding: 20px 22px; text-decoration: none; color: inherit; transition: border-color 0.2s; }
+a.dl-card:hover { border-color: var(--accent); }
+.dl-card .dl-name { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+.dl-card .dl-desc { font-size: 14px; color: var(--muted); line-height: 1.6; max-width: 620px; }
+.dl-card .dl-tag { font-family: var(--mono); font-size: 11px; color: var(--faint); letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 8px; }
