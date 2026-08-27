@@ -72,12 +72,25 @@
       <h1>Enable Wake-on-LAN on Windows</h1>
       <p class="kicker date">Five minutes, once, on the PC you want Rouse to wake</p>
 
+      <nav class="toc" aria-label="On this page">
+  <p class="toc-label">On this page</p>
+  <ol class="toc-list">
+    <li><a href="#step-1">Allow the network adapter to wake the PC</a></li>
+    <li><a href="#step-2">Enable Wake on Magic Packet</a></li>
+    <li><a href="#step-3">Turn off Fast Startup</a></li>
+    <li><a href="#step-4">Check the BIOS / UEFI</a></li>
+    <li><a href="#step-5">Test it with Rouse</a></li>
+    <li class="aux"><a href="#mac">Waking a Mac instead?</a></li>
+    <li class="aux"><a href="#stuck">Still stuck?</a></li>
+  </ol>
+</nav>
+
       <p>Wake-on-LAN lets a sleeping PC be woken by a "magic packet" sent over your network. Windows PCs usually ship with it half-enabled: the hardware supports it, but two or three settings stand in the way. Work through the steps below on the target PC, then use Test the Wake in Rouse's Setup Guide to confirm.</p>
 
       <div class="wol-note"><strong>Use Ethernet.</strong> Wake-on-LAN over Wi-Fi is unreliable on most hardware. If the PC has an Ethernet port, plug it in. These steps assume the wired adapter.</div>
 
       <div class="wol-step">
-        <h2><span class="step-n">01</span>Allow the network adapter to wake the PC</h2>
+        <h2 id="step-1"><span class="step-n">01</span>Allow the network adapter to wake the PC</h2>
         <p>Right-click the Start button and choose <strong>Device Manager</strong>. Expand <strong>Network adapters</strong>, double-click your Ethernet adapter, and open the <strong>Power Management</strong> tab. Check the first two boxes:</p>
         <div class="wol-shot">
           <div class="win" role="img" aria-label="Illustration of the adapter Power Management tab with both wake checkboxes enabled">
@@ -96,7 +109,7 @@
       </div>
 
       <div class="wol-step">
-        <h2><span class="step-n">02</span>Enable Wake on Magic Packet</h2>
+        <h2 id="step-2"><span class="step-n">02</span>Enable Wake on Magic Packet</h2>
         <p>In the same Properties window, open the <strong>Advanced</strong> tab. In the Property list, find <strong>Wake on Magic Packet</strong> and set its Value to <strong>Enabled</strong>. Names vary slightly by adapter. Realtek calls it "Wake on Magic Packet"; some list "WOL &amp; Shutdown Link Speed" too, which can stay at its default.</p>
         <div class="wol-shot">
           <div class="win" role="img" aria-label="Illustration of the adapter Advanced tab with Wake on Magic Packet set to Enabled">
@@ -120,7 +133,7 @@
       </div>
 
       <div class="wol-step">
-        <h2><span class="step-n">03</span>Turn off Fast Startup</h2>
+        <h2 id="step-3"><span class="step-n">03</span>Turn off Fast Startup</h2>
         <p>This is the one most guides miss. With Fast Startup on, a "shut down" Windows PC parks in a hybrid state where many adapters stop listening for magic packets, so wake works from sleep but not from shutdown.</p>
         <p>Open <strong>Control Panel → Power Options → Choose what the power buttons do</strong>, click <strong>Change settings that are currently unavailable</strong>, and untick <strong>Turn on fast startup</strong>:</p>
         <div class="wol-shot">
@@ -139,7 +152,7 @@
       </div>
 
       <div class="wol-step">
-        <h2><span class="step-n">04</span>Check the BIOS / UEFI</h2>
+        <h2 id="step-4"><span class="step-n">04</span>Check the BIOS / UEFI</h2>
         <p>Most PCs ship with this on, so try a test wake first. If wake from full shutdown still fails, reboot into BIOS/UEFI setup (usually <span class="wol-kbd">Del</span> or <span class="wol-kbd">F2</span> at power-on) and look for a setting named one of:</p>
         <ul>
           <li>Wake on LAN / WOL</li>
@@ -150,14 +163,14 @@
       </div>
 
       <div class="wol-step">
-        <h2><span class="step-n">05</span>Test it with Rouse</h2>
+        <h2 id="step-5"><span class="step-n">05</span>Test it with Rouse</h2>
         <p>Put the PC to sleep, then tap its wake button in Rouse, or run <strong>Test the Wake</strong> in the Setup Guide, which sends a magic packet and tells you what it did. If sleep-wake works but shutdown-wake doesn't, revisit steps 3 and 4.</p>
       </div>
 
-      <h2>Waking a Mac instead?</h2>
+      <h2 id="mac">Waking a Mac instead?</h2>
       <p>Macs are simpler: turn on <strong>Wake for network access</strong> in System Settings → Battery (desktops: Energy). Note that Apple Silicon Macs return to a light sleep quickly after waking; install Rouse on the target Mac and enable Wake Helper to hold it awake for remote-desktop connections. See <a href="support.html">Support</a> for details.</p>
 
-      <h2>Still stuck?</h2>
+      <h2 id="stuck">Still stuck?</h2>
       <p>Wake-on-LAN behavior varies a lot by adapter and motherboard. If these steps don't work, search your PC or motherboard model plus "Wake on LAN" for vendor-specific settings, and check that your Ethernet driver is current.</p>
     </article>
   </main>
