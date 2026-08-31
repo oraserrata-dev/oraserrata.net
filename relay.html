@@ -120,7 +120,7 @@
   rouse-relay:
     image: <span class="hl">oraserrata/rouse-relay:latest</span>
     container_name: rouse-relay
-    restart: unless-stopped
+    restart: always
     network_mode: host
     environment:
       - AUTH_TOKEN=<span class="hl">your-password-here</span></pre>
@@ -131,7 +131,7 @@
 <pre>docker run -d \
     --name rouse-relay \
     --network host \
-    --restart unless-stopped \
+    --restart always \
     -e AUTH_TOKEN=<span class="hl">your-password-here</span> \
     <span class="hl">oraserrata/rouse-relay:latest</span></pre>
         </div>
