@@ -6,25 +6,23 @@
   <title>Privacy Policy · Ora Serrata</title>
   <meta name="description" content="Privacy Policy for apps published by Ora Serrata LLC.">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Chivo+Mono:ital,wght@0,300..600;1,300..600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-head">
     <div class="wrap head-in">
       <a href="index.html" class="brand"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" fill="currentColor" d="M12 2A10 10 0 1 1 11.99 2Z M18.90 12.00L17.27 12.59L18.73 13.54L17.00 13.75L18.22 14.99L16.49 14.82L17.39 16.30L15.75 15.75L16.30 17.39L14.82 16.49L14.99 18.22L13.75 17.00L13.54 18.73L12.59 17.27L12.00 18.90L11.41 17.27L10.46 18.73L10.25 17.00L9.01 18.22L9.18 16.49L7.70 17.39L8.25 15.75L6.61 16.30L7.51 14.82L5.78 14.99L7.00 13.75L5.27 13.54L6.73 12.59L5.10 12.00L6.73 11.41L5.27 10.46L7.00 10.25L5.78 9.01L7.51 9.18L6.61 7.70L8.25 8.25L7.70 6.61L9.18 7.51L9.01 5.78L10.25 7.00L10.46 5.27L11.41 6.73L12.00 5.10L12.59 6.73L13.54 5.27L13.75 7.00L14.99 5.78L14.82 7.51L16.30 6.61L15.75 8.25L17.39 7.70L16.49 9.18L18.22 9.01L17.00 10.25L18.73 10.46L17.27 11.41Z"></path></svg> Ora Serrata</a>
-      <nav class="site-nav">
+      <nav class="site-nav" aria-label="Primary">
         <a href="about.html">About</a>
         <a href="downloads.html">Downloads</a>
         <a href="support.html">Support</a>
-        <a href="privacy.html" class="on">Privacy</a>
+        <a href="privacy.html" class="on" aria-current="page">Privacy</a>
         <a href="terms.html">Terms</a>
       </nav>
     </div>
   </header>
-  <main class="wrap">
+  <main class="wrap" id="main" tabindex="-1">
     <article class="article">
       <h1>Privacy Policy</h1>
       <p class="kicker date">Effective: September 8, 2026</p>
@@ -33,8 +31,8 @@
   <p class="toc-label">On this page</p>
   <ol class="toc-list">
     <li><a href="#fovea">Fovea</a></li>
-    <li><a href="#collect">Information We Collect</a></li>
-    <li><a href="#not-collect">Information We Do Not Collect</a></li>
+    <li><a href="#collect">Rouse: Information Stored</a></li>
+    <li><a href="#not-collect">Rouse: Information Not Collected</a></li>
     <li><a href="#permissions">Permissions Rouse Requests</a></li>
     <li><a href="#icloud">iCloud Sync</a></li>
     <li><a href="#relay">Rouse Relay (Self-Hosted)</a></li>
@@ -61,7 +59,7 @@
       <p><strong>Your controls.</strong> Quit Fovea to stop clipboard access. Where your version of macOS provides a clipboard permission control, you can also revoke access in System Settings. File and folder access is limited by the macOS App Sandbox and the locations you authorize. Contact us if you need help removing local settings.</p>
       <p>The Rouse-specific sections below describe that app and its optional relay. Support email, this website, Apple diagnostics, children's privacy, your rights, policy changes, and contact information apply as described to both apps and their users.</p>
 
-      <h2 id="collect">Information We Collect</h2>
+      <h2 id="collect">Rouse: Information Stored</h2>
       <p>Rouse is designed to collect as little data as possible, and to keep what it does hold on devices you control. None of the following ever reaches a server operated by Ora Serrata:</p>
       <ul>
         <li>Device configuration you enter: names, MAC addresses, broadcast IP addresses, and SecureON passwords (if used) for the devices you want to wake</li>
@@ -70,7 +68,7 @@
       </ul>
       <p>This information is stored locally on your device and, if you have iCloud sync enabled, synced through Apple's iCloud Key-Value Storage to your other Apple devices signed in to the same Apple Account. We have no access to it.</p>
 
-      <h2 id="not-collect">Information We Do Not Collect</h2>
+      <h2 id="not-collect">Rouse: Information Not Collected</h2>
       <p>Rouse itself does not collect the following information for Ora Serrata:</p>
       <ul>
         <li>Your name, email, phone number, or any other personal identifier</li>
@@ -90,11 +88,11 @@
 
       <h2 id="icloud">iCloud Sync</h2>
       <p>If you are signed in to iCloud and have iCloud sync enabled inside Rouse (the default), your device list and Location list are synced across your Apple devices using Apple's iCloud Key-Value Storage service. This data is stored in your private Apple Account and is governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>. Ora Serrata does not have access to your iCloud account or its contents.</p>
-      <p>To stop syncing you can disable iCloud sync inside Rouse's Settings, or remove Rouse's data from iCloud in your device's Settings → Apple ID → iCloud.</p>
+      <p>To stop syncing you can disable iCloud sync inside Rouse's Settings, or manage Rouse's iCloud data through your Apple Account settings, where those controls are available.</p>
 
       <h2 id="relay">Rouse Relay (Self-Hosted)</h2>
       <p>Rouse Relay is optional server software you can run on your own always-on device (a Mac, a Raspberry Pi, a NAS, a Docker host, or similar) so the app can wake your devices when you're away from home. Ora Serrata does not operate a hosted relay service. Every relay is run by its user on their own hardware, on their own network.</p>
-      <p>Rouse on macOS can also take this role itself, through Relay Mode in its settings, instead of running the separate server. Both handle wake requests exactly as described below, and in both cases the relay runs on your own hardware and the requests stay on your own network.</p>
+      <p>Rouse on macOS can also take this role itself, through Relay Mode in its settings, instead of running the separate server. In both cases, requests go from the app to the relay you configure. Remote connections may cross the internet through your VPN or other network connection; they do not pass through a relay operated by Ora Serrata.</p>
       <p>Each wake request sent to your relay contains only:</p>
       <ul>
         <li>The target device's MAC address</li>
@@ -102,7 +100,7 @@
         <li>An optional SecureON password if your device requires one</li>
         <li>Your relay auth token in the request header, for authentication</li>
       </ul>
-      <p>The relay does not persist wake requests after they are processed. It writes operational log entries (events like "Wake sent" or "Bad token") to its standard output for your own troubleshooting; these never leave the device you run the relay on.</p>
+      <p>The standalone relay does not keep a database of wake requests. Its operational logs can include target MAC addresses, broadcast addresses, ports, and error messages. Your operating system, service manager, or container settings determine where these logs are kept and for how long, including any log forwarding you configure. The relay does not send logs to Ora Serrata.</p>
 
       <h2 id="support-email">Support Email</h2>
       <p>If you email <a href="mailto:hello@oraserrata.net">hello@oraserrata.net</a>, we receive your email address, your message, and any name or attachments you include. We use this information to reply and investigate the issue you raise. Our email provider processes and stores the correspondence to provide email service.</p>
@@ -110,8 +108,8 @@
 
       <h2 id="website">This Website</h2>
       <p>Visiting oraserrata.net is separate from using Fovea's local conversion features. This website is served through Cloudflare and uses Cloudflare Web Analytics to measure visits and page performance. Cloudflare processes technical request information to deliver and protect the site. Its Web Analytics service reports information such as pages visited, referring sites, browser and device type, country, and loading performance, without using analytics cookies.</p>
-      <p>The website also loads fonts from Google Fonts. To deliver them, Google receives requests from your browser, including your IP address and browser information. These website services do not receive Fovea's clipboard contents merely because you visit this site or open its privacy policy.</p>
-      <p>For the providers' handling and retention of website information, see <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's Privacy Policy</a>, <a href="https://developers.cloudflare.com/web-analytics/faq/">Cloudflare's Web Analytics documentation</a>, and <a href="https://developers.google.com/fonts/faq/privacy">Google Fonts' privacy information</a>. You can contact us with questions about website data or privacy requests.</p>
+      <p>The fonts are served from this website, so your browser does not need to contact Google Fonts. Website services do not receive Fovea's clipboard contents merely because you visit this site or open its privacy policy.</p>
+      <p>For the providers' handling and retention of website information, see <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's Privacy Policy</a> and <a href="https://developers.cloudflare.com/web-analytics/faq/">Cloudflare's Web Analytics documentation</a>. You can contact us with questions about website data or privacy requests.</p>
 
       <h2 id="diagnostics">Diagnostics Shared with Apple</h2>
       <p>If you have opted in to "Share With App Developers" under Settings → Privacy &amp; Security → Analytics &amp; Improvements on your device, Apple may make crash and performance reports available to us to help diagnose problems. We do not run any third-party analytics or crash-reporting SDK. This channel is entirely Apple-mediated and you can turn it off at any time in your device's settings.</p>
@@ -125,11 +123,11 @@
       </ul>
 
       <h2 id="retention">Data Retention and Deletion</h2>
-      <p>Because Rouse stores data only on your device and in your iCloud account, you control retention and deletion completely:</p>
+      <p>Rouse settings and synced data are held on your devices and in your iCloud account. Removing the app does not necessarily remove every copy:</p>
       <ul>
-        <li>To delete data on a single device, uninstall the Rouse app from that device.</li>
-        <li>To delete iCloud-synced data, open Settings → Apple ID → iCloud → Manage Account Storage on iOS, or System Settings → Apple ID → iCloud → Manage on macOS, and remove Rouse.</li>
-        <li>The optional Rouse Relay does not retain wake requests; stopping or uninstalling the relay removes its data immediately.</li>
+        <li>Delete device and Location entries you no longer need in Rouse. Uninstalling the app may leave settings behind, particularly on macOS. Contact us if you need help removing local settings.</li>
+        <li>For synced data, changes can propagate to other devices while sync is enabled. Turning sync off stops future syncing but does not itself erase existing copies. Apple Account storage controls and backups follow Apple's settings.</li>
+        <li>Stopping or uninstalling the standalone relay does not automatically erase its configuration or logs. Remove those separately using your service manager or container tools, including any copies in backups or forwarded logs.</li>
       </ul>
 
       <h2 id="children">Children's Privacy</h2>
@@ -149,9 +147,9 @@
     <div class="wrap foot-grid">
       <div>
         <div class="foot-brand"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" fill="currentColor" d="M12 2A10 10 0 1 1 11.99 2Z M18.90 12.00L17.27 12.59L18.73 13.54L17.00 13.75L18.22 14.99L16.49 14.82L17.39 16.30L15.75 15.75L16.30 17.39L14.82 16.49L14.99 18.22L13.75 17.00L13.54 18.73L12.59 17.27L12.00 18.90L11.41 17.27L10.46 18.73L10.25 17.00L9.01 18.22L9.18 16.49L7.70 17.39L8.25 15.75L6.61 16.30L7.51 14.82L5.78 14.99L7.00 13.75L5.27 13.54L6.73 12.59L5.10 12.00L6.73 11.41L5.27 10.46L7.00 10.25L5.78 9.01L7.51 9.18L6.61 7.70L8.25 8.25L7.70 6.61L9.18 7.51L9.01 5.78L10.25 7.00L10.46 5.27L11.41 6.73L12.00 5.10L12.59 6.73L13.54 5.27L13.75 7.00L14.99 5.78L14.82 7.51L16.30 6.61L15.75 8.25L17.39 7.70L16.49 9.18L18.22 9.01L17.00 10.25L18.73 10.46L17.27 11.41Z"></path></svg> Ora Serrata LLC</div>
-        <p class="footnote"><em>ora serrata</em>, n. the serrated edge where the retina ends, and seeing begins.</p>
+        <p class="footnote"><em>ora serrata</em>, n. the serrated front edge of the retina.</p>
       </div>
-      <nav class="foot-nav">
+      <nav class="foot-nav" aria-label="Footer">
         <a href="downloads.html">Downloads</a>
         <a href="support.html">Support</a>
         <a href="privacy.html">Privacy Policy</a>
