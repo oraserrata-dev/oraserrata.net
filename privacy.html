@@ -27,7 +27,7 @@
   <main class="wrap">
     <article class="article">
       <h1>Privacy Policy</h1>
-      <p class="kicker date">Effective: August 26, 2026</p>
+      <p class="kicker date">Effective: September 8, 2026</p>
 
       <nav class="toc" aria-label="On this page">
   <p class="toc-label">On this page</p>
@@ -38,6 +38,8 @@
     <li><a href="#permissions">Permissions Rouse Requests</a></li>
     <li><a href="#icloud">iCloud Sync</a></li>
     <li><a href="#relay">Rouse Relay (Self-Hosted)</a></li>
+    <li><a href="#support-email">Support Email</a></li>
+    <li><a href="#website">This Website</a></li>
     <li><a href="#diagnostics">Diagnostics Shared with Apple</a></li>
     <li><a href="#third-party">Third-Party Services</a></li>
     <li><a href="#retention">Data Retention and Deletion</a></li>
@@ -48,14 +50,19 @@
   </ol>
 </nav>
 
-      <p>Ora Serrata LLC ("we," "us," or "our") builds apps that respect your privacy. This policy covers our apps, Fovea and Rouse, and the optional Rouse Relay server software.</p>
+      <p>Ora Serrata LLC ("we," "us," or "our") builds apps that respect your privacy. This policy covers our apps, Fovea and Rouse, the optional Rouse Relay server software, this website, and support correspondence.</p>
 
       <h2 id="fovea">Fovea</h2>
-      <p>Fovea, our clipboard-saving utility for Mac, collects nothing. It reads your clipboard only while the app is open, and only to show you a preview of what you copied; nothing is stored, logged, or transmitted. Fovea has no network access of any kind. Files you save are written only to locations you choose, and the app keeps no copy of their contents. A list of your recent save locations and your chosen Quick Save folder are kept on your Mac for your convenience and never leave it. There are no analytics, no identifiers, and no third-party services.</p>
-      <p>The remainder of this policy describes Rouse and its optional relay software. The sections on diagnostics shared with Apple, children's privacy, your rights, changes, and contact apply to both apps.</p>
+      <p>Fovea (Fovea: Clipboard Saver) processes copied images, PDFs, and text on your Mac. It does not upload your clipboard or file contents to Ora Serrata or to an online conversion service. Fovea requires no account and includes no advertising, analytics, or tracking SDKs.</p>
+      <p><strong>Clipboard access.</strong> Fovea reads the clipboard when you bring the app to the foreground and checks for changes while it is active. It uses this content to provide previews, cropping, text editing, conversion, saving, and copying back to the clipboard. It does not monitor the clipboard in the background or maintain a clipboard history.</p>
+      <p><strong>What stays on your Mac.</strong> Fovea remembers your selected export formats, the paths of up to ten recently saved files, and permission to access the Quick Save folder you choose. These preferences contain locations and settings, not a saved history of your clipboard contents. Fovea does not send them to us or provide its own cloud sync.</p>
+      <p><strong>Files you save or share.</strong> Saved files go to the destination you choose. Copy to Clipboard places your result on the macOS clipboard, and dragging a file into another app gives that app access to it. If you choose an iCloud-synced folder, a network drive, another app, or a macOS clipboard-sharing feature, that destination or service may transfer or retain the content according to its own settings and policies.</p>
+      <p><strong>Retention and deletion.</strong> Fovea holds the current preview and unsaved edits in memory during use; it does not restore them as a clipboard history after quitting. You can clear the recent-file list using File → Recent Saves → Clear Recents. Clearing this list does not delete the files themselves. Saved files remain until you delete them, and other preferences remain locally until you remove the app's stored settings. Removing the app alone may leave settings and exported files behind.</p>
+      <p><strong>Your controls.</strong> Quit Fovea to stop clipboard access. Where your version of macOS provides a clipboard permission control, you can also revoke access in System Settings. File and folder access is limited by the macOS App Sandbox and the locations you authorize. Contact us if you need help removing local settings.</p>
+      <p>The Rouse-specific sections below describe that app and its optional relay. Support email, this website, Apple diagnostics, children's privacy, your rights, policy changes, and contact information apply as described to both apps and their users.</p>
 
       <h2 id="collect">Information We Collect</h2>
-      <p>Our apps are designed to collect as little data as possible, and to keep what they do hold on devices you control. None of the following ever reaches a server operated by Ora Serrata:</p>
+      <p>Rouse is designed to collect as little data as possible, and to keep what it does hold on devices you control. None of the following ever reaches a server operated by Ora Serrata:</p>
       <ul>
         <li>Device configuration you enter: names, MAC addresses, broadcast IP addresses, and SecureON passwords (if used) for the devices you want to wake</li>
         <li>Network identifiers for the Wi-Fi networks you save as Locations: SSID and BSSID</li>
@@ -64,7 +71,7 @@
       <p>This information is stored locally on your device and, if you have iCloud sync enabled, synced through Apple's iCloud Key-Value Storage to your other Apple devices signed in to the same Apple Account. We have no access to it.</p>
 
       <h2 id="not-collect">Information We Do Not Collect</h2>
-      <p>We do not collect, store, transmit, or have any way to access:</p>
+      <p>Rouse itself does not collect the following information for Ora Serrata:</p>
       <ul>
         <li>Your name, email, phone number, or any other personal identifier</li>
         <li>Your precise geographic location</li>
@@ -97,8 +104,17 @@
       </ul>
       <p>The relay does not persist wake requests after they are processed. It writes operational log entries (events like "Wake sent" or "Bad token") to its standard output for your own troubleshooting; these never leave the device you run the relay on.</p>
 
+      <h2 id="support-email">Support Email</h2>
+      <p>If you email <a href="mailto:hello@oraserrata.net">hello@oraserrata.net</a>, we receive your email address, your message, and any name or attachments you include. We use this information to reply and investigate the issue you raise. Our email provider processes and stores the correspondence to provide email service.</p>
+      <p>We keep support correspondence unless you ask us to delete it. To request deletion, email the same address. Please send only the information needed for support and remove private content from any screenshots or sample files you choose to share. Fovea does not automatically send us its clipboard contents with a support request.</p>
+
+      <h2 id="website">This Website</h2>
+      <p>Visiting oraserrata.net is separate from using Fovea's local conversion features. This website is served through Cloudflare and uses Cloudflare Web Analytics to measure visits and page performance. Cloudflare processes technical request information to deliver and protect the site. Its Web Analytics service reports information such as pages visited, referring sites, browser and device type, country, and loading performance, without using analytics cookies.</p>
+      <p>The website also loads fonts from Google Fonts. To deliver them, Google receives requests from your browser, including your IP address and browser information. These website services do not receive Fovea's clipboard contents merely because you visit this site or open its privacy policy.</p>
+      <p>For the providers' handling and retention of website information, see <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's Privacy Policy</a>, <a href="https://developers.cloudflare.com/web-analytics/faq/">Cloudflare's Web Analytics documentation</a>, and <a href="https://developers.google.com/fonts/faq/privacy">Google Fonts' privacy information</a>. You can contact us with questions about website data or privacy requests.</p>
+
       <h2 id="diagnostics">Diagnostics Shared with Apple</h2>
-      <p>If you have opted in to "Share With App Developers" under Settings → Privacy &amp; Security → Analytics &amp; Improvements on your device, Apple may forward anonymized crash and performance reports to us. We do not run any third-party analytics or crash-reporting SDK. This channel is entirely Apple-mediated and you can turn it off at any time in your device's settings.</p>
+      <p>If you have opted in to "Share With App Developers" under Settings → Privacy &amp; Security → Analytics &amp; Improvements on your device, Apple may make crash and performance reports available to us to help diagnose problems. We do not run any third-party analytics or crash-reporting SDK. This channel is entirely Apple-mediated and you can turn it off at any time in your device's settings.</p>
 
       <h2 id="third-party">Third-Party Services</h2>
       <p>Rouse contains no third-party analytics, advertising frameworks, tracking SDKs, or social-login integrations. The only network connections the app makes are:</p>
@@ -120,7 +136,7 @@
       <p>Our apps are not directed at children under 13 and we do not knowingly collect information from children.</p>
 
       <h2 id="rights">Your Rights</h2>
-      <p>Because we do not collect personal information, most regulatory rights of access, correction, and deletion are satisfied automatically; there is no record of you on our systems to act on. Residents of California, the European Union, the United Kingdom, and other jurisdictions with similar regulations may still contact us at the address below with any privacy-related question.</p>
+      <p>Depending on where you live, you may have rights to access, correct, or delete personal information, or to object to or restrict certain uses of it. Contact us at the address below to make a privacy request, including a request concerning support correspondence. We cannot access or delete clipboard contents, exported files, or settings held only on your own devices; the app-specific sections explain the controls available to you.</p>
 
       <h2 id="changes">Changes to This Policy</h2>
       <p>We may update this policy from time to time. Any changes will be posted on this page with an updated effective date. Material changes will also be noted in app release notes when new versions of our apps ship.</p>
