@@ -1,2 +1,4 @@
+# Allow crawlers to read the noindex directive present on every HTML page.
+# The site remains excluded from search indexing by that directive.
 User-agent: *
-Disallow: /
+Disallow:
