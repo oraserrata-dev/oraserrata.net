@@ -25,7 +25,7 @@
   <main class="wrap" id="main" tabindex="-1">
     <article class="article">
       <h1>Privacy Policy</h1>
-      <p class="kicker date">Effective: September 8, 2026</p>
+      <p class="kicker date">Effective: October 20, 2026</p>
 
       <nav class="toc" aria-label="On this page">
   <p class="toc-label">On this page</p>
@@ -64,9 +64,12 @@
       <ul>
         <li>Device configuration you enter: names, MAC addresses, broadcast IP addresses, and SecureON passwords (if used) for the devices you want to wake</li>
         <li>Network identifiers for the Wi-Fi networks you save as Locations: SSID and BSSID</li>
-        <li>Relay configuration you enter: relay hostname, port, and auth token, if you set up the optional Rouse Relay</li>
+        <li>Identifiers Rouse uses to recognize a Location over Ethernet: the router's MAC address and the local subnet</li>
+        <li>Relay configuration you enter: relay hostname, port, labels, and auth token, if you set up the optional Rouse Relay, plus when the relay was last tested</li>
+        <li>The time each device was last woken, and the name of the device that last edited each entry (a Mac's computer name; an iPhone or iPad reports only "iPhone" or "iPad")</li>
       </ul>
-      <p>This information is stored locally on your device and, if you have iCloud sync enabled, synced through Apple's iCloud Key-Value Storage to your other Apple devices signed in to the same Apple Account. We have no access to it.</p>
+      <p>This information is stored locally on your device and, if you have iCloud sync enabled, synced through Apple's iCloud Key-Value Storage to your other Apple devices signed in to the same Apple Account. The auth token for Relay Mode on a Mac stays on that Mac. We have no access to any of it.</p>
+      <p><strong>Diagnostics report.</strong> Rouse can produce a diagnostics report to help with troubleshooting, but only when you choose Share Diagnostics. On iPhone and iPad it opens the share sheet; on the Mac it is copied to the clipboard and can be saved to a file. It leaves your device only if you send it somewhere yourself.</p>
 
       <h2 id="not-collect">Rouse: Information Not Collected</h2>
       <p>Rouse itself does not collect the following information for Ora Serrata:</p>
@@ -79,9 +82,9 @@
       </ul>
 
       <h2 id="permissions">Permissions Rouse Requests</h2>
-      <p>The app asks for the following operating-system permissions. Each is requested only when the relevant feature first needs it, never at app launch.</p>
+      <p>The app asks for the following operating-system permissions. On iPhone and iPad, each is requested when the relevant feature first needs it. On the Mac, Rouse asks for Location and Notifications when it first launches, and for Local Network the first time it reaches a device on your network.</p>
       <ul>
-        <li><strong>Local Network</strong> (iOS): required to broadcast Wake-on-LAN magic packets on your Wi-Fi.</li>
+        <li><strong>Local Network</strong> (iOS and macOS): required to send Wake-on-LAN magic packets on your network and to reach a relay at a local address. On the Mac it also covers the network scan described below.</li>
         <li><strong>Location When In Use</strong> (iOS and macOS): Apple gates access to the current Wi-Fi network's name and BSSID behind the Location permission. Rouse uses this only to read which Wi-Fi you're connected to so it can organize devices by Location. Your precise geographic location is never accessed or stored.</li>
         <li><strong>Notifications</strong>: used to confirm wake results and surface routing errors. You can disable this in system Settings at any time.</li>
       </ul>
@@ -115,10 +118,12 @@
       <p>If you have opted in to "Share With App Developers" under Settings → Privacy &amp; Security → Analytics &amp; Improvements on your device, Apple may make crash and performance reports available to us to help diagnose problems. We do not run any third-party analytics or crash-reporting SDK. This channel is entirely Apple-mediated and you can turn it off at any time in your device's settings.</p>
 
       <h2 id="third-party">Third-Party Services</h2>
-      <p>Rouse contains no third-party analytics, advertising frameworks, tracking SDKs, or social-login integrations. The only network connections the app makes are:</p>
+      <p>Rouse contains no third-party analytics, advertising frameworks, tracking SDKs, or social-login integrations. The only network activity the app has is:</p>
       <ul>
         <li>UDP broadcasts on your local network, to wake target devices</li>
-        <li>HTTP or HTTPS requests to your own self-hosted Rouse Relay, if you have configured one</li>
+        <li>HTTP or HTTPS requests to your own self-hosted Rouse Relay, if you have configured one, from the app and from its widgets</li>
+        <li>On the Mac, when you click Scan My Network or Detect: a 10-second Bonjour scan of your local network that lists nearby devices so you can pick your relay</li>
+        <li>On the Mac, while Relay Mode is turned on: listening on the TCP port you choose for wake requests from your other devices</li>
         <li>Apple's iCloud service, mediated entirely by the operating system, for the sync described above</li>
       </ul>
 
