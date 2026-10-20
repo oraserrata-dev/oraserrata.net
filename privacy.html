@@ -68,8 +68,8 @@
         <li>Relay configuration you enter: relay hostname, port, labels, and auth token, if you set up the optional Rouse Relay, plus when the relay was last tested</li>
         <li>The time each device was last woken, and the name of the device that last edited each entry (a Mac's computer name; an iPhone or iPad reports only "iPhone" or "iPad")</li>
       </ul>
-      <p>This information is stored locally on your device and, if you have iCloud sync enabled, synced through Apple's iCloud Key-Value Storage to your other Apple devices signed in to the same Apple Account. The auth token for Relay Mode on a Mac stays on that Mac. We have no access to any of it.</p>
-      <p><strong>Diagnostics report.</strong> Rouse can produce a diagnostics report to help with troubleshooting, but only when you choose Share Diagnostics. On iPhone and iPad it opens the share sheet; on the Mac it is copied to the clipboard and can be saved to a file. It leaves your device only if you send it somewhere yourself.</p>
+      <p>This information is stored locally on your device and, if you have iCloud sync enabled, synced through Apple's iCloud Key-Value Storage to your other Apple devices signed in to the same Apple Account. A Mac's own Relay Mode settings, including its auth token, are kept only on that Mac. If you use that Mac as the relay for a Location, Rouse copies the token into that Location, and it syncs to your other devices with the rest of the Location's information when iCloud sync is on. We have no access to any of it.</p>
+      <p><strong>Diagnostics report.</strong> Rouse can produce a diagnostics report to help with troubleshooting, but only when you choose Share Diagnostics. The report lists each saved device's name, MAC address, broadcast address and port, and its Location and relay names. It also includes your relay addresses and whether each one answered, the current Wi-Fi name, your VPN IP address (and on the Mac, its local IP address), your app and OS versions, and Rouse log entries from the last 30 minutes. Auth tokens and SecureON passwords appear only as set or not set, never their actual values. On iPhone and iPad it opens the share sheet; on the Mac it is copied to the clipboard and can be saved to a file. It leaves your device only if you send it somewhere yourself.</p>
 
       <h2 id="not-collect">Rouse: Information Not Collected</h2>
       <p>Rouse itself does not collect the following information for Ora Serrata:</p>
@@ -82,7 +82,7 @@
       </ul>
 
       <h2 id="permissions">Permissions Rouse Requests</h2>
-      <p>The app asks for the following operating-system permissions. On iPhone and iPad, each is requested when the relevant feature first needs it. On the Mac, Rouse asks for Location and Notifications when it first launches, and for Local Network the first time it reaches a device on your network.</p>
+      <p>The app asks for the following operating-system permissions. On the Mac, Rouse asks for Location and Notifications when it first launches. On iPhone and iPad, Rouse asks for Location when you open Add Device or tap a button to allow it, or a few seconds after first launch if it restores saved Locations from iCloud. It asks for Notifications the first time it has a wake result or a wake problem to report. On every device, the system asks for Local Network the first time Rouse contacts something on your network. That can be an automatic check of a relay at a local address soon after the app opens.</p>
       <ul>
         <li><strong>Local Network</strong> (iOS and macOS): required to send Wake-on-LAN magic packets on your network and to reach a relay at a local address. On the Mac it also covers the network scan described below.</li>
         <li><strong>Location When In Use</strong> (iOS and macOS): Apple gates access to the current Wi-Fi network's name and BSSID behind the Location permission. Rouse uses this only to read which Wi-Fi you're connected to so it can organize devices by Location. Your precise geographic location is never accessed or stored.</li>
@@ -90,7 +90,7 @@
       </ul>
 
       <h2 id="icloud">iCloud Sync</h2>
-      <p>If you are signed in to iCloud and have iCloud sync enabled inside Rouse (the default), your device list and Location list are synced across your Apple devices using Apple's iCloud Key-Value Storage service. This data is stored in your private Apple Account and is governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>. Ora Serrata does not have access to your iCloud account or its contents.</p>
+      <p>If you are signed in to iCloud and have iCloud sync enabled inside Rouse (the default), your device list, your Location list, and the time each device was last woken are synced across your Apple devices using Apple's iCloud Key-Value Storage service. This data is stored in your private Apple Account and is governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>. Ora Serrata does not have access to your iCloud account or its contents.</p>
       <p>To stop syncing you can disable iCloud sync inside Rouse's Settings, or manage Rouse's iCloud data through your Apple Account settings, where those controls are available.</p>
 
       <h2 id="relay">Rouse Relay (Self-Hosted)</h2>
