@@ -68,7 +68,7 @@
         <li>Relay configuration you enter: relay hostname, port, labels, and auth token, if you set up the optional Rouse Relay, plus when the relay was last tested</li>
         <li>The time each device was last woken, and the name of the device that last edited each entry (a Mac's computer name; an iPhone or iPad reports only "iPhone" or "iPad")</li>
       </ul>
-      <p>This information is stored locally on your device and, if you have iCloud sync enabled, synced through Apple's iCloud Key-Value Storage to your other Apple devices signed in to the same Apple Account. A Mac's own Relay Mode settings, including its auth token, are kept only on that Mac. If you use that Mac as the relay for a Location, Rouse copies the token into that Location, and it syncs to your other devices with the rest of the Location's information when iCloud sync is on. We have no access to any of it.</p>
+      <p>This information is stored locally on your device and, when you are signed in to iCloud, synced through Apple's iCloud Key-Value Storage to your other Apple devices signed in to the same Apple Account. A Mac's own Relay Mode settings, including its auth token, are kept only on that Mac. If you use that Mac as the relay for a Location, Rouse copies the token into that Location, and it syncs to your other devices with the rest of the Location's information. We have no access to any of it.</p>
       <p><strong>Diagnostics report.</strong> Rouse can produce a diagnostics report to help with troubleshooting, but only when you choose Share Diagnostics. The report lists each saved device's name, MAC address, broadcast address and port, and its Location and relay names. It also includes your relay addresses and whether each one answered, the current Wi-Fi name, your VPN IP address (and on the Mac, its local IP address), your app and OS versions, and Rouse log entries from the last 30 minutes. Auth tokens and SecureON passwords appear only as set or not set, never their actual values. On iPhone and iPad it opens the share sheet; on the Mac it is copied to the clipboard and can be saved to a file. It leaves your device only if you send it somewhere yourself.</p>
 
       <h2 id="not-collect">Rouse: Information Not Collected</h2>
@@ -90,8 +90,8 @@
       </ul>
 
       <h2 id="icloud">iCloud Sync</h2>
-      <p>If you are signed in to iCloud and have iCloud sync enabled inside Rouse (the default), your device list, your Location list, and the time each device was last woken are synced across your Apple devices using Apple's iCloud Key-Value Storage service. This data is stored in your private Apple Account and is governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>. Ora Serrata does not have access to your iCloud account or its contents.</p>
-      <p>To stop syncing you can disable iCloud sync inside Rouse's Settings, or manage Rouse's iCloud data through your Apple Account settings, where those controls are available.</p>
+      <p>When you are signed in to iCloud, your device list, your Location list, and the time each device was last woken are synced across your Apple devices using Apple's iCloud Key-Value Storage service. This data is stored in your private Apple Account and is governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>. Ora Serrata does not have access to your iCloud account or its contents.</p>
+      <p>Sync is always on in Rouse; there is no in-app switch. To stop syncing on a device, sign out of iCloud on that device. To remove your devices and Locations from every device signed in to your Apple Account, use Delete All Data in Rouse's Settings; each device removes its copy the next time it syncs.</p>
 
       <h2 id="relay">Rouse Relay (Self-Hosted)</h2>
       <p>Rouse Relay is optional server software you can run on your own always-on device (a Mac, a Raspberry Pi, a NAS, a Docker host, or similar) so the app can wake your devices when you're away from home. Ora Serrata does not operate a hosted relay service. Every relay is run by its user on their own hardware, on their own network.</p>
@@ -131,7 +131,7 @@
       <p>Rouse settings and synced data are held on your devices and in your iCloud account. Removing the app does not necessarily remove every copy:</p>
       <ul>
         <li>Delete device and Location entries you no longer need in Rouse. Uninstalling the app may leave settings behind, particularly on macOS. Contact us if you need help removing local settings.</li>
-        <li>For synced data, changes can propagate to other devices while sync is enabled. Turning sync off stops future syncing but does not itself erase existing copies. Apple Account storage controls and backups follow Apple's settings.</li>
+        <li>For synced data, changes propagate to your other devices signed in to the same Apple Account. Signing out of iCloud stops future syncing on that device but does not itself erase existing copies. Apple Account storage controls and backups follow Apple's settings.</li>
         <li>Stopping or uninstalling the standalone relay does not automatically erase its configuration or logs. Remove those separately using your service manager or container tools, including any copies in backups or forwarded logs.</li>
       </ul>
 
